@@ -3,38 +3,39 @@
 
 <PageTitle>Weather</PageTitle>
 
-<h1>Weather</h1>
-
-<p>This component demonstrates showing data.</p>
-
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th aria-label="Temperature in Celsius">Temp. (C)</th>
-                <th aria-label="Temperature in Fahrenheit">Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h4">Weather</MudText>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudText Class="mb-4">This component demonstrates showing data.</MudText>
+            
+            @if (forecasts == null)
             {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
+                <MudProgressCircular Indeterminate="true" />
+                <MudText Class="mt-2"><em>Loading...</em></MudText>
             }
-        </tbody>
-    </table>
-}
+            else
+            {
+                <MudTable Items="forecasts" Hover="true" Striped="true">
+                    <HeaderContent>
+                        <MudTh>Date</MudTh>
+                        <MudTh>Temperature (°C)</MudTh>
+                        <MudTh>Temperature (°F)</MudTh>
+                        <MudTh>Summary</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Date">@context.Date.ToShortDateString()</MudTd>
+                        <MudTd DataLabel="Temperature (°C)">@context.TemperatureC</MudTd>
+                        <MudTd DataLabel="Temperature (°F)">@context.TemperatureF</MudTd>
+                        <MudTd DataLabel="Summary">@context.Summary</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            }
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
 
 @code {
     private WeatherForecast[]? forecasts;

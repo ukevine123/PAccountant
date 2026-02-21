@@ -1,3 +1,6 @@
+using Domain.Entities;
+using Application.Interface;
+
 namespace Application.Service.Liabilities
 {
     public class LiabilityService : ILiabilityService
