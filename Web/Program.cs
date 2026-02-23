@@ -1,10 +1,23 @@
-using PAccountant.Components;
+using Web.Components;
+using MudBlazor.Services;
+using Infrastructure.DependencyInjection;
+using Application.Interfaces;
+using Application.Services.Assets;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddMudServices();
+
+builder.Services.AddScoped<IAssetService, AssetService>();
+
+builder.Services.AddInfrastructureServices(builder.Configuration);
+
 
 var app = builder.Build();
 

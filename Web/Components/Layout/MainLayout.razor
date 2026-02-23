@@ -1,23 +1,61 @@
-﻿@inherits LayoutComponentBase
+﻿
+@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+@* Required *@
+<MudThemeProvider DefaultScrollbar="true" @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
+<MudPopoverProvider />
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+@* Needed for dialogs *@
+<MudDialogProvider />
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+@* Needed for snackbars *@
+<MudSnackbarProvider />
 
-<div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
-</div>
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        My Application
+        <MudSpacer/>
+        <!-- Light / Dark Mode Icon Toggle -->
+        <MudIconButton
+            Icon="@(_isDarkMode 
+                ? Icons.Material.Filled.LightMode 
+                : Icons.Material.Filled.DarkMode)"
+            Color="Color.Inherit"
+            OnClick="ToggleTheme" />
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen">
+        <NavMenu/>
+    </MudDrawer>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+
+    private MudTheme _theme = new()
+    {
+                PaletteLight = new PaletteLight()
+        {
+            Primary = Colors.Blue.Default,
+            Secondary = Colors.Green.Accent4,
+            AppbarBackground = Colors.Red.Default,
+        },
+        PaletteDark = new PaletteDark()
+        {
+            Primary = Colors.Blue.Lighten1
+        },
+    };
+    private bool _isDarkMode;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+     void ToggleTheme()
+    {
+        _isDarkMode = !_isDarkMode;
+    }
+}
