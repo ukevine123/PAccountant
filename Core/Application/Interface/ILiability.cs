@@ -5,6 +5,7 @@ namespace Application.Interface
     {
        
         List<Liability> GetAllLiabilities();
+        public Liability GetLiabilityById(int id);
     }
 
 }

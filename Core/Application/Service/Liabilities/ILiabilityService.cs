@@ -6,6 +6,7 @@ namespace Application.Service.Liabilities
     {
        
         List<Liability> GetAllLiabilities();
+        public Liability GetLiabilityById(int id);
     }
 
 }

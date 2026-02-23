@@ -14,6 +14,16 @@ namespace Infrastructure.Data
 
         public DbSet<Liability> Liabilities { get; set; }
          
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     base.OnModelCreating(modelBuilder);
+
+        //     // Configure Liability entity
+        //     modelBuilder.Entity<Liability>()
+        //         .Property(l => l.Value)
+        //         .HasPrecision(18, 2);
+        // }
+        
         //  protected override void OnModelCreating(ModelBuilder Builder)
         // {
         //     base.OnModelCreating(Builder);

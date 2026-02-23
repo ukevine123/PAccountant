@@ -18,5 +18,11 @@ namespace Infrastructure.Repositories
              List<Liability> _liabilities = _dbcontext.Liabilities.ToList();
             return _liabilities;
         }
+          public Liability GetLiabilityById(int id)
+        {
+
+            return _dbcontext.Liabilities.FirstOrDefault(c => c.Id == id);
+
+        }
     }
 }

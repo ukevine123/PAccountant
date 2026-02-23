@@ -16,5 +16,9 @@ namespace Application.Service.Liabilities
             List<Liability> liabilities = _liability.GetAllLiabilities();
             return liabilities;
         }
+         public Liability GetLiabilityById(int id)
+        {
+            return _liability.GetLiabilityById(id); 
+        }  
     }
 }

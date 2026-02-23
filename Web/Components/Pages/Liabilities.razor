@@ -98,13 +98,13 @@
         if (string.IsNullOrWhiteSpace(_searchString))
             return true;
 
-        if (x.Id.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+        if ($"{x.Id}".Contains(_searchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
-        if (x.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+        if (!string.IsNullOrEmpty(x.Name) && x.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
-        if (x.Type.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+        if (!string.IsNullOrEmpty(x.Type) && x.Type.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
             return true;
 
         if ($"{x.Value}".Contains(_searchString))
@@ -133,7 +133,7 @@
         Navigation.NavigateTo("/Liabilities/create");
     }
 
-    void DeleteLiability(string id)
+    void DeleteLiability(int id)
     {
         // TODO: Implement delete functionality
         liabilities = liabilities.Where(l => l.Id != id).ToList();

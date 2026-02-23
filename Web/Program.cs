@@ -1,6 +1,6 @@
 using Web.Components;
 using MudBlazor.Services;
-using Infrastructure.DependencyInjection;
+using Application.Service.Liabilities;
 
 
 
@@ -8,12 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMudServices();//mudblazor services for UI components
 
-// Add infrastructure services
-builder.Services.AddInfrastructureServices(builder.Configuration);
-
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+    // Dependency Injection for application services
+
+        builder.Services.AddScoped<ILiabilityService, LiabilityService>();
 
 var app = builder.Build();
 
