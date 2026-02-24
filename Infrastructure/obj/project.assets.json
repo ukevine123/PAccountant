@@ -2207,23 +2207,39 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\PC\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\honyh\\.nuget\\packages\\": {},
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
       "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\Infrastructure.csproj",
+      "projectName": "Infrastructure",
+      "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\obj\\",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2232,15 +2248,23 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
         "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj"
+=======
+            "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj"
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
             }
           }
         }
@@ -2306,7 +2330,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

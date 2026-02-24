@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\PC\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.deps.json
 C:\Users\PC\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.dll
 C:\Users\PC\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.pdb
@@ -10,3 +11,16 @@ C:\Users\PC\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.dll
 C:\Users\PC\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
 C:\Users\PC\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.pdb
 C:\Users\PC\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\ref\Domain.dll
+=======
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\honyh\Desktop\PAccountant\Core\Domain\obj\Debug\net10.0\ref\Domain.dll
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab

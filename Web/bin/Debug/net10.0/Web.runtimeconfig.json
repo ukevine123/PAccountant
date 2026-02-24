@@ -14,7 +14,12 @@
     "configProperties": {
       "System.GC.Server": true,
       "System.Reflection.NullabilityInfoContext.IsSupported": true,
+<<<<<<< HEAD
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false
+=======
+      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false,
+      "Microsoft.AspNetCore.Components.Endpoints.NavigationManager.DisableThrowNavigationException": true
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
     }
   }
 }
