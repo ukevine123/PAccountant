@@ -1,73 +1,60 @@
-﻿
-@inherits LayoutComponentBase
-@inject NavigationManager NavigationManager
+﻿@inherits LayoutComponentBase
 
-<MudThemeProvider 
-    DefaultScrollbar="true" 
-    @bind-IsDarkMode="_isDarkMode" 
-    Theme="_theme" />
-
+@* Required *@
+<MudThemeProvider DefaultScrollbar="true" @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
 <MudPopoverProvider />
+
+@* Needed for dialogs *@
 <MudDialogProvider />
+
+@* Needed for snackbars *@
 <MudSnackbarProvider />
 
 <MudLayout>
-
     <MudAppBar>
-        <MudIconButton 
-            Icon="@Icons.Material.Filled.Menu" 
-            Color="Color.Inherit" 
-            Edge="Edge.Start" 
-            OnClick="DrawerToggle" />
-
-        PAccountant
-
-        <MudSpacer />
-
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        My Application
+        <MudSpacer/>
+        <!-- Light / Dark Mode Icon Toggle -->
         <MudIconButton
             Icon="@(_isDarkMode 
                 ? Icons.Material.Filled.LightMode 
                 : Icons.Material.Filled.DarkMode)"
             Color="Color.Inherit"
             OnClick="ToggleTheme" />
-
-        
     </MudAppBar>
-
-    <MudDrawer @bind-Open="_drawerOpen">
-        <NavMenu />
+    <MudDrawer @bind-Open="@_drawerOpen">
+        <NavMenu/>
     </MudDrawer>
-
     <MudMainContent>
         @Body
     </MudMainContent>
-
 </MudLayout>
 
 @code {
-
     bool _drawerOpen = true;
-    bool _isDarkMode = false;
 
     private MudTheme _theme = new()
     {
-        PaletteLight = new PaletteLight()
+                PaletteLight = new PaletteLight()
         {
             Primary = Colors.Blue.Default,
             Secondary = Colors.Green.Accent4,
-            AppbarBackground = "#008AE1",
+            AppbarBackground = Colors.Red.Default,
         },
         PaletteDark = new PaletteDark()
         {
-            Primary = Colors.Blue.Lighten1,
-            Secondary = Colors.Green.Lighten2,
-            AppbarBackground = Colors.Shades.Black,
+            Primary = Colors.Blue.Lighten1
         },
     };
+    private bool _isDarkMode;
 
-    void DrawerToggle() => _drawerOpen = !_drawerOpen;
-
-    void ToggleTheme() => _isDarkMode = !_isDarkMode;
-
-   
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+     void ToggleTheme()
+    {
+        _isDarkMode = !_isDarkMode;
+    }
 }

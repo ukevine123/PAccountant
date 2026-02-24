@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\obj\\",
+=======
     "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj": {}
   },
   "projects": {
@@ -12,12 +25,17 @@
         "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\obj\\",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +44,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+          "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +87,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

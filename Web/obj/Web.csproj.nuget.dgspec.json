@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\obj\\",
+=======
     "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj": {}
   },
   "projects": {
@@ -12,12 +25,17 @@
         "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\obj\\",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +44,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+          "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj"
+=======
               "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj"
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
               }
             }
           }
@@ -69,7 +96,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -347,6 +378,16 @@
         }
       }
     },
+<<<<<<< HEAD
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\obj\\",
+=======
     "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -355,12 +396,17 @@
         "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\obj\\",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -369,6 +415,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+          "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -408,7 +458,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -686,6 +740,16 @@
         }
       }
     },
+<<<<<<< HEAD
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\obj\\",
+=======
     "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -694,12 +758,17 @@
         "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\obj\\",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -708,14 +777,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+          "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj"
+=======
               "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj": {
                 "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj"
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
               }
             }
           }
@@ -781,7 +859,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -1059,6 +1141,16 @@
         }
       }
     },
+<<<<<<< HEAD
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\Web.csproj",
+        "projectName": "Web",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\Web.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\obj\\",
+=======
     "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -1067,12 +1159,17 @@
         "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj",
         "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\obj\\",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1081,17 +1178,29 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+          "C:\\Program Files\\dotnet\\library-packs": {},
+=======
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj"
+              },
+              "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj"
+=======
               "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj": {
                 "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj"
               },
               "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\Infrastructure.csproj"
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
               }
             }
           }
@@ -1115,7 +1224,11 @@
             "Microsoft.AspNetCore.App.Internal.Assets": {
               "suppressParent": "All",
               "target": "Package",
+<<<<<<< HEAD
+              "version": "[10.0.2, )",
+=======
               "version": "[10.0.3, )",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
               "autoReferenced": true
             },
             "Microsoft.EntityFrameworkCore.Design": {
@@ -1150,7 +1263,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

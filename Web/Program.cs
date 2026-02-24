@@ -1,24 +1,23 @@
-using Web.Components;
+
+
 using MudBlazor.Services;
-
-// using Application.Services.Accounts;
-
-
-
-
+using Web.Components;
+using Infrastructure.DependencyInjection;
+using Application.Services.AccountService;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddMudServices();//mudblazor services for UI components
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+// Register MudBlazor services for Mud components
+builder.Services.AddMudServices();
 
+// Register infrastructure services (database, repositories)
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
-// / Application Services
-//  builder.Services.AddScoped<IAccountService, AccountService>();
-
+// Register application services
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 var app = builder.Build();
 
