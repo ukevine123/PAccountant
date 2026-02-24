@@ -5,6 +5,7 @@
 
 @inject ILiabilityService LiabilityService
 @inject NavigationManager Navigation
+@inject IDialogService DialogService
 
 <PageTitle>Liability</PageTitle>
 
@@ -13,9 +14,8 @@
         <MudCardHeader>
             <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Style="width: 100%;">
                 <MudText Typo="Typo.h5">Liabilities</MudText>
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="OpenDialog">
-                    <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> Add Liability
-                </MudButton>
+               <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => OpenDialog())">Add Liability</MudButton>
+    
             </MudStack>
         </MudCardHeader>
         <MudCardContent>
@@ -128,9 +128,15 @@
         return _selectedItems.Sum(l => l.Value);
     }
 
-    void OpenDialog()
+     private async Task OpenDialog(Liability? liability = null)
     {
-        Navigation.NavigateTo("/Liabilities/create");
+        var dialog = await DialogService.ShowAsync<LiabilityDialog>("Add Liability");
+        var result = await dialog.Result;
+        
+        if (result != null && !result.Canceled)
+        {
+            liabilities = LiabilityService.GetAllLiabilities();
+        }
     }
 
     void DeleteLiability(int id)

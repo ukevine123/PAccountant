@@ -1,3 +1,4 @@
+using Application.DTO;
 using Domain.Entities;
 namespace Application.Interface
 {
@@ -6,6 +7,9 @@ namespace Application.Interface
        
         List<Liability> GetAllLiabilities();
         public Liability GetLiabilityById(int id);
+        void CreateLiability(LiabilityCreateDTO liabilityDTO);
+       
+        void UpdateLiability(int id, LiabilityUpdateDTO liabilityDTO);
     }
 
 }

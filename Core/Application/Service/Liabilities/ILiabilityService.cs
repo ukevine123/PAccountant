@@ -1,4 +1,5 @@
 
+using Application.DTO;
 using Domain.Entities;
 namespace Application.Service.Liabilities
 {
@@ -7,6 +8,8 @@ namespace Application.Service.Liabilities
        
         List<Liability> GetAllLiabilities();
         public Liability GetLiabilityById(int id);
+        void CreateLiability(LiabilityCreateDTO liabilityDTO);
+        void UpdateLiability(int id, LiabilityUpdateDTO liabilityDTO);
     }
 
 }

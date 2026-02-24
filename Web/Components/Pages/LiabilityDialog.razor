@@ -1,0 +1,56 @@
+@using  Application.DTO
+@using System.ComponentModel.DataAnnotations
+@using Domain.Entities
+@using Application.Service.Liabilities
+@using MudBlazor
+@using MudBlazor.Services
+@using Microsoft.AspNetCore.Components
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@inject NavigationManager Navigation
+@inject ILiabilityService LiabilityService
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+
+
+<MudDialog>
+<DialogContent>
+    <EditForm Model="Model" OnValidSubmit="onValidSubmit">
+        <DataAnnotationsValidator />
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTextField Label="Name" @bind-Value="Model.Name" For="@(() => Model.Name)" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField Label="Type" @bind-Value="Model.Type" For="@(() => Model.Type)" />
+            </MudItem>
+             <MudItem xs="12">
+                <MudTextField Label="Value" @bind-Value="Model.Value" For="@(() => Model.Value)" />
+            </MudItem>
+             
+            
+            <MudItem xs="12" class="d-flex justify-content-end">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit">Add Liability</MudButton>
+            </MudItem>
+             
+           
+        </MudGrid>
+
+    </EditForm>
+</DialogContent>
+</MudDialog>
+
+@code{
+    [CascadingParameter] IMudDialogInstance DialogInstance { get; set; }
+
+    private LiabilityCreateDTO Model {get;set;} = new ();
+   
+
+
+    private void onValidSubmit()
+    {
+        LiabilityService.CreateLiability(Model);
+        Snackbar.Add("Liability created successfully!", Severity.Success);
+        DialogInstance.Close();
+    }
+
+}

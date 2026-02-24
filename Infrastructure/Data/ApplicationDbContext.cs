@@ -14,34 +14,24 @@ namespace Infrastructure.Data
 
         public DbSet<Liability> Liabilities { get; set; }
          
-        // protected override void OnModelCreating(ModelBuilder modelBuilder)
-        // {
-        //     base.OnModelCreating(modelBuilder);
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
-        //     // Configure Liability entity
-        //     modelBuilder.Entity<Liability>()
-        //         .Property(l => l.Value)
-        //         .HasPrecision(18, 2);
-        // }
+            // Configure Liability entity
+            modelBuilder.Entity<Liability>()
+                .Property(l => l.Value)
+                .HasPrecision(18, 2);
+        }
         
-        //  protected override void OnModelCreating(ModelBuilder Builder)
-        // {
-        //     base.OnModelCreating(Builder);
-
-        //     // customize Identity tables
-        //     Builder.Entity<User>().ToTable("Users");
-        //      Builder.Entity<IdentityRole<int>>().ToTable("Roles");
-        //         Builder.Entity<IdentityUserClaim<int>>().ToTable("UserClaims");
-        //         Builder.Entity<IdentityUserLogin<int>>().ToTable("UserLogins");
-        //         Builder.Entity<IdentityRoleClaim<int>>().ToTable("RoleClaims");
-        //         Builder.Entity<IdentityUserToken<int>>().ToTable("UserTokens");
-        //         Builder.Entity<IdentityUserRole<int>>().ToTable("UserRoles").HasKey(ur => new { ur.UserId, ur.RoleId });
+        
+        
                 
 
             
 
            
-        // }
+       
         
         
         
