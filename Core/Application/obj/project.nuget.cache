@@ -1,8 +1,26 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "rCsaqjRB/7I=",
   "success": true,
   "projectFilePath": "C:\\Users\\KEVINE\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  "dgSpecHash": "A1qDWFWg17Q=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+=======
+  "dgSpecHash": "aSlkBvpG7Og=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
+=======
+  "dgSpecHash": "0nd3Wlsp6Ug=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
   "expectedPackageFiles": [],
   "logs": []
 }

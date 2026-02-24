@@ -1,0 +1,55 @@
+@page "/accounts/create"
+@rendermode InteractiveServer
+
+@using Application.DTOs
+@using Application.Services.AccountService
+@inject IAccountService AccountService
+@inject NavigationManager Navigation
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>Create Account</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudPaper Elevation="1" Class="pa-6">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <MudText Typo="Typo.h5">Create Account</MudText>
+            <MudButton Href="/accounts" Variant="Variant.Outlined" Size="Size.Small">Back to list</MudButton>
+        </div>
+
+        <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="Model.Name" Label="Name" Placeholder="Enter account name" 
+                        Variant="Variant.Outlined" FullWidth="true" />
+                    <ValidationMessage For="@(() => Model.Name)" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudNumericField @bind-Value="Model.Balance" Label="Initial Balance" Placeholder="Enter balance"
+                        Variant="Variant.Outlined" FullWidth="true" />
+                    <ValidationMessage For="@(() => Model.Balance)" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">
+                        Create Account
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </MudPaper>
+</MudContainer>
+
+@code{
+    private AccountCreateDTOs  Model {get; set;} = new();
+
+    private async Task OnValidSubmit()
+    {
+        var req = new CreateAccountRequest
+        {
+            Name = Model.Name,
+            InitialBalance = Model.Balance
+        };
+        await AccountService.CreateAccountAsync(req);
+        Navigation.NavigateTo("/accounts");
+    }
+}

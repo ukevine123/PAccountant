@@ -1,0 +1,96 @@
+@page "/Liabilities/{Id:int}"
+@using Domain.Entities
+@using Application.Service.Liabilities
+
+@inject ILiabilityService LiabilityService
+
+<PageTitle>Liability Details</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="py-4">
+    @if (isLoading)
+    {
+        <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+        <MudText Class="mt-3">Loading liability details...</MudText>
+    }
+    else if (liability != null)
+    {
+        <MudCard>
+            <MudCardHeader>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <MudText Typo="Typo.h4" Color="Color.Primary">
+                        <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Class="mr-2" />
+                        Liability Details
+                    </MudText>
+                    
+                    <MudButton Href="/Liabilities" 
+                               Variant="Variant.Filled" 
+                               Color="Color.Primary"
+                               EndIcon="@Icons.Material.Filled.ArrowBack">
+                        Back to Liabilities
+                    </MudButton>
+                    <MudSpacer />
+                </div>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudSimpleTable Style="overflow-x: auto;">
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold; width: 20%;">Id</td>
+                            <td>@liability.Id</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Name</td>
+                            <td>@liability.Name</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Type</td>
+                            <td>@liability.Type</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Value</td>
+                            <td>@liability.Value</td>
+                        </tr>
+                       
+                      
+                      
+                    </tbody>
+                </MudSimpleTable>
+            </MudCardContent>
+        </MudCard>
+    }
+    else
+    {
+        <MudCard>
+            <MudCardContent>
+                <MudAlert Severity="Severity.Error" Class="mt-4">
+                    <MudText Typo="Typo.h6">Liability Not Found</MudText>
+                    <MudText Typo="Typo.body2">The liability with ID @Id does not exist.</MudText>
+                    <MudButton Href="/Liabilities" 
+                               Variant="Variant.Filled" 
+                               Color="Color.Primary"
+                               Class="mt-3"
+                               EndIcon="@Icons.Material.Filled.ArrowBack">
+                        Back to Liabilities
+                    </MudButton>
+                </MudAlert>
+            </MudCardContent>
+        </MudCard>
+    }
+</MudContainer>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Liability? liability;
+    private bool isLoading = true;
+
+    protected override void OnInitialized()
+    {
+        isLoading = true;
+        liability = LiabilityService.GetLiabilityById(Id);
+        isLoading = false;
+    }
+
+    
+}
