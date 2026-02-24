@@ -56,9 +56,6 @@ C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Web.pdb
 C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Azure.Core.dll
 C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Azure.Identity.dll
 C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Humanizer.dll
-C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Microsoft.AspNet.Identity.Core.dll
-C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
 C:\Users\honyh\Desktop\PAccountant\Web\bin\Debug\net10.0\Microsoft.Build.dll
@@ -205,7 +202,6 @@ C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\Web.GeneratedMSBuildEdi
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\Web.AssemblyInfoInputs.cache
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\Web.AssemblyInfo.cs
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\Web.csproj.CoreCompileInputs.cache
-C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\Web.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
@@ -278,3 +274,4 @@ C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\refint\Web.dll
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\Web.pdb
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\Web.genruntimeconfig.cache
 C:\Users\honyh\Desktop\PAccountant\Web\obj\Debug\net10.0\ref\Web.dll
+C:\Users\honyh\Desktop\PAccountant\web\obj\Debug\net10.0\Web.sourcelink.json
