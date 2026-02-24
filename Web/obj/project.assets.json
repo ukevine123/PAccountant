@@ -51,27 +51,7 @@
           }
         }
       },
-<<<<<<< HEAD
       "Microsoft.AspNetCore.App.Internal.Assets/10.0.2": {
-=======
-      "Microsoft.AspNet.Identity.Core/2.2.4": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-<<<<<<< HEAD
-      "Microsoft.AspNetCore.App.Internal.Assets/10.0.2": {
-=======
-      "Microsoft.AspNetCore.App.Internal.Assets/10.0.3": {
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "type": "package",
         "build": {
           "build/Microsoft.AspNetCore.App.Internal.Assets.props": {},
@@ -1604,20 +1584,12 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Application": "1.0.0",
-<<<<<<< HEAD
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.0",
           "Microsoft.AspNetCore.Identity.UI": "10.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.0",
           "Microsoft.EntityFrameworkCore.Design": "10.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "10.0.0"
-=======
-          "Microsoft.AspNet.Identity.Core": "2.2.4",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.0",
-          "Microsoft.AspNetCore.Identity.UI": "10.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.0"
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         },
         "compile": {
           "bin/placeholder/Infrastructure.dll": {}
@@ -1687,36 +1659,10 @@
         "logo.png"
       ]
     },
-<<<<<<< HEAD
     "Microsoft.AspNetCore.App.Internal.Assets/10.0.2": {
       "sha512": "fMAqrUm+aspxRAsCJ6Hlgs96XSHwNIr9HBNt7wyBAzQkPlfE7w+0C4NzDoJnso5YZyDI0VcRtEXxG9odt3KiZA==",
       "type": "package",
       "path": "microsoft.aspnetcore.app.internal.assets/10.0.2",
-=======
-    "Microsoft.AspNet.Identity.Core/2.2.4": {
-      "sha512": "s3u/o3iG5h0z7Ggukwo4soPwogD56ZrYbolGxTfw41zkuG6jAXUJT/V3EThqHJXGuCNvWSdSnnwAhPfT9Sn36g==",
-      "type": "package",
-      "path": "microsoft.aspnet.identity.core/2.2.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Microsoft.AspNet.Identity.Core.dll",
-        "lib/net45/Microsoft.AspNet.Identity.Core.xml",
-        "microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
-        "microsoft.aspnet.identity.core.nuspec"
-      ]
-    },
-<<<<<<< HEAD
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.2": {
-      "sha512": "fMAqrUm+aspxRAsCJ6Hlgs96XSHwNIr9HBNt7wyBAzQkPlfE7w+0C4NzDoJnso5YZyDI0VcRtEXxG9odt3KiZA==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.app.internal.assets/10.0.2",
-=======
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.3": {
-      "sha512": "mr3Zn+ht8lijYvlMIasftw9opU9hsLKDdnOgQMmYI3RjWPJLOF9l8+YHDseRkTs97wOrULmJgo/NDCmzL/EGDg==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.app.internal.assets/10.0.3",
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1732,11 +1678,7 @@
         "build/Microsoft.AspNetCore.App.Internal.Assets.targets",
         "buildMultiTargeting/Microsoft.AspNetCore.App.Internal.Assets.targets",
         "buildTransitive/Microsoft.AspNetCore.App.Internal.Assets.targets",
-<<<<<<< HEAD
         "microsoft.aspnetcore.app.internal.assets.10.0.2.nupkg.sha512",
-=======
-        "microsoft.aspnetcore.app.internal.assets.10.0.3.nupkg.sha512",
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "microsoft.aspnetcore.app.internal.assets.nuspec"
       ]
     },
@@ -4159,66 +4101,30 @@
     "net10.0": [
       "Application >= 1.0.0",
       "Infrastructure >= 1.0.0",
-<<<<<<< HEAD
       "Microsoft.AspNetCore.App.Internal.Assets >= 10.0.2",
-=======
-      "Microsoft.AspNetCore.App.Internal.Assets >= 10.0.3",
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
       "Microsoft.EntityFrameworkCore.Design >= 10.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.0",
       "MudBlazor >= 8.15.0"
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-<<<<<<< HEAD
     "C:\\Users\\ndayi\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\PC\\.nuget\\packages\\": {},
->>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
-=======
-    "C:\\Users\\honyh\\.nuget\\packages\\": {},
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\web\\Web.csproj",
       "projectName": "Web",
       "projectPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\web\\Web.csproj",
       "packagesPath": "C:\\Users\\ndayi\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\web\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\Web.csproj",
-      "projectName": "Web",
-      "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\Web.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\obj\\",
->>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
-=======
-      "projectUniqueName": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj",
-      "projectName": "Web",
-      "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj",
-      "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\obj\\",
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
-<<<<<<< HEAD
         "C:\\Users\\ndayi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
-=======
-        "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4227,37 +4133,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-<<<<<<< HEAD
         "C:\\Program Files\\dotnet\\library-packs": {},
-=======
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-<<<<<<< HEAD
-<<<<<<< HEAD
             "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj"
             },
             "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
               "projectPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj"
-=======
-            "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj"
-            },
-            "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj"
->>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
-=======
-            "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj"
-            },
-            "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Infrastructure\\Infrastructure.csproj"
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
             }
           }
         }
@@ -4281,11 +4168,7 @@
           "Microsoft.AspNetCore.App.Internal.Assets": {
             "suppressParent": "All",
             "target": "Package",
-<<<<<<< HEAD
             "version": "[10.0.2, )",
-=======
-            "version": "[10.0.3, )",
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
             "autoReferenced": true
           },
           "Microsoft.EntityFrameworkCore.Design": {
@@ -4320,11 +4203,7 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -4741,21 +4620,5 @@
         }
       }
     }
-<<<<<<< HEAD
   }
-=======
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.Identity.Core",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
 }

@@ -1,9 +1,13 @@
-namespace Domain.Entities;
+using System;
 
-public class Account
+namespace Domain.Entities
 {
-    public string Id { get; set; } 
-    public string Name { get; set; } 
-    public decimal Balance { get; set; } 
-    
+    public class Account
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Balance { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public int CreatedById { get; set; }
+    }
 }

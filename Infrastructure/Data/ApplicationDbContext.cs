@@ -13,6 +13,7 @@ namespace Infrastructure.Data
         }
 
         public DbSet<Liability> Liabilities { get; set; }
+        public DbSet<Account> Accounts { get; set; }
          
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +22,11 @@ namespace Infrastructure.Data
             // Configure Liability entity
             modelBuilder.Entity<Liability>()
                 .Property(l => l.Value)
+                .HasPrecision(18, 2);
+
+            // Configure Account entity
+            modelBuilder.Entity<Account>()
+                .Property(a => a.Balance)
                 .HasPrecision(18, 2);
         }
         
