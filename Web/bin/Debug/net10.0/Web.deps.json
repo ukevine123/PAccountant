@@ -51,6 +51,17 @@
           }
         }
       },
+<<<<<<< HEAD
+=======
+      "Microsoft.AspNet.Identity.Core/2.2.4": {
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.4.50621"
+          }
+        }
+      },
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "10.0.0"
@@ -908,10 +919,17 @@
       "Infrastructure/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+<<<<<<< HEAD
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.0",
           "Microsoft.AspNetCore.Identity.UI": "10.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.0",
           "Microsoft.EntityFrameworkCore.Design": "10.0.0",
+=======
+          "Microsoft.AspNet.Identity.Core": "2.2.4",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "10.0.0",
+          "Microsoft.EntityFrameworkCore": "10.0.0",
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.0"
         },
         "runtime": {
@@ -950,6 +968,16 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
+<<<<<<< HEAD
+=======
+    "Microsoft.AspNet.Identity.Core/2.2.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-s3u/o3iG5h0z7Ggukwo4soPwogD56ZrYbolGxTfw41zkuG6jAXUJT/V3EThqHJXGuCNvWSdSnnwAhPfT9Sn36g==",
+      "path": "microsoft.aspnet.identity.core/2.2.4",
+      "hashPath": "microsoft.aspnet.identity.core.2.2.4.nupkg.sha512"
+    },
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.0": {
       "type": "package",
       "serviceable": true,
