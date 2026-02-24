@@ -1,8 +1,5 @@
 using Domain.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace Infrastructure.Data
 {
@@ -12,6 +9,10 @@ namespace Infrastructure.Data
         {
         }
 
+        public DbSet<Asset> Assets { get; set;}
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Budget> Budgets{ get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Liability> Liabilities { get; set; }
         public DbSet<Account> Accounts { get; set; }
          
@@ -29,17 +30,5 @@ namespace Infrastructure.Data
                 .Property(a => a.Balance)
                 .HasPrecision(18, 2);
         }
-        
-        
-        
-                
-
-            
-
-           
-       
-        
-        
-        
     }
 }

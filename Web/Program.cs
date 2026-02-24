@@ -1,8 +1,9 @@
 
 
 using MudBlazor.Services;
-using Application.Service.Liabilities;
 using Infrastructure.DependencyInjection;
+using Application.Interfaces;
+using Application.Services.Assets;
 
 
 
@@ -14,9 +15,11 @@ builder.Services.AddRazorComponents()
 // Register MudBlazor services for Mud components
 builder.Services.AddMudServices();
 
-    // Dependency Injection for application services
+builder.Services.AddMudServices();
 
-        builder.Services.AddScoped<ILiabilityService, LiabilityService>();
+builder.Services.AddScoped<IAssetService, AssetService>();
+
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
         // Depedency Injection for infrastructure Layer
 builder.Services.AddInfrastructureServices(builder.Configuration);

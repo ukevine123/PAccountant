@@ -10,7 +10,23 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Domain
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\ndayi\source\repos\PAccountant\Core\Domain\
+=======
+<<<<<<< HEAD
+build_property.ProjectDir = C:\Users\KEVINE\source\repos\PAccountant\Core\Domain\
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+build_property.ProjectDir = C:\Users\ndayi\source\repos\PAccountant\Core\Domain\
+=======
+build_property.ProjectDir = C:\Users\PC\source\repos\PAccountant\Core\Domain\
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
+=======
+build_property.ProjectDir = C:\Users\honyh\Desktop\PAccountant\Core\Domain\
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
+>>>>>>> e67b5ac06a94ca96d4e8fdfde844a200ce9c77b5
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
