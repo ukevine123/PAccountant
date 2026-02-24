@@ -9,17 +9,25 @@
     <link rel="stylesheet" href="@Assets["app.css"]" />
     <ImportMap />
 
+    @* MudBlazor Fonts and CSS *@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <link href="@Assets["_content/MudBlazor/MudBlazor.min.css"]" rel="stylesheet" />
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    
     <link rel="icon" type="image/png" href="favicon.png" />
     <HeadOutlet />
 </head>
 
 <body>
-    <Routes />
+    @* Applying InteractiveServer here allows the entire app to be interactive 
+       while avoiding the "Body parameter serialization" error in MainLayout. 
+    *@
+    <Routes @rendermode="InteractiveServer" />
+    
     <ReconnectModal />
-    <script src="@Assets["_framework/blazor.web.js"]"></script>
-    <script src="@Assets["_content/MudBlazor/MudBlazor.min.js"]"></script>
+    
+    @* Scripts required for Blazor and MudBlazor functionality *@
+    <script src="_framework/blazor.web.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
 </body>
 
 </html>

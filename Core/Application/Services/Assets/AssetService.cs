@@ -24,5 +24,13 @@ namespace Application.Services.Assets
         {
             _asset.CreateAsset(assetDTO);
         }
+        public Asset GetAssetById(int id)
+        {
+           return _asset.GetAssetById(id);
+        }
+        public void UpdateAsset(int id, AssetUpdateDTO assetDTO)
+        {
+            _asset.UpdateAsset(id, assetDTO);
+        }
     }
 }

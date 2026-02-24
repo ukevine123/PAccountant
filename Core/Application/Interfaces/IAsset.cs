@@ -7,5 +7,7 @@ namespace Application.Interfaces
     {
         public List<Asset> GetAllAssets();
         void CreateAsset(AssetCreateDTO assetDTO);
+        public Asset GetAssetById(int id);
+        void UpdateAsset(int id, AssetUpdateDTO assetDTO);
     }
 }

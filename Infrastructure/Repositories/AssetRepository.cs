@@ -32,5 +32,22 @@ namespace Infrastructure.Repositories
             _dbContext.Assets.Add(asset);
             _dbContext.SaveChanges();
         }
+
+        public Asset GetAssetById(int id)
+        {
+           return _dbContext.Assets.FirstOrDefault(a=>a.Id==id);
+        }
+
+        public void UpdateAsset(int id, AssetUpdateDTO assetDTO)
+        {
+            var asset = GetAssetById(id);
+            if (asset != null)
+            {
+                asset.Name = assetDTO.Name;
+                asset.Type = assetDTO.Type;
+                asset.Value = assetDTO.Value;
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }

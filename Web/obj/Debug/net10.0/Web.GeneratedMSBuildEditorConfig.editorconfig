@@ -37,12 +37,24 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/KEVINE/source/repos/PAccountant/Web/Components/Pages/AssetCreateDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBc3NldENyZWF0ZURpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/KEVINE/source/repos/PAccountant/Web/Components/Pages/Assets.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBc3NldHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/KEVINE/source/repos/PAccountant/Web/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KEVINE/source/repos/PAccountant/Web/Components/Pages/CreateAsset.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDcmVhdGVBc3NldC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/KEVINE/source/repos/PAccountant/Web/Components/Pages/EditAsset.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0QXNzZXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/KEVINE/source/repos/PAccountant/Web/Components/Pages/Error.razor]

@@ -14,7 +14,7 @@ namespace Infrastructure.DependencyInjection
         {
             // Register ApplicationDbContext (service here) with SQL Server provider
             services.AddDbContext<ApplicationDbContext>(options =>
-             options.UseSqlServer(configuration.GetConnectionString("PAccountantMSSQLConnection")), ServiceLifetime.Scoped);
+             options.UseSqlServer(configuration.GetConnectionString("PAccountantSQLConnection")), ServiceLifetime.Scoped);
             
             services.AddScoped<IAsset, AssetRepository>();
 
