@@ -1,0 +1,50 @@
+@page "/accounts/{Id:int}"
+@using Domain.Entities
+@using Application.Services.AccountService
+
+@inject IAccountService AccountService
+
+<PageTitle>Account Detail</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <div class="mb-4">
+        <MudButton Href="/accounts" Variant="Variant.Filled" Color="Color.Primary">Back to Accounts List</MudButton>
+    </div>
+
+    @if (account != null)
+    {
+        <MudPaper Elevation="1" Class="pa-6">
+            <MudText Typo="Typo.h5" Class="mb-4">Account Details</MudText>
+            <MudGrid>
+                <MudItem xs="12" sm="6">
+                    <MudPaper Elevation="0" Class="pa-4" Style="background: #f5f5f5; border-radius: 4px;">
+                        @* Changed Color.TextSecondary to Color.Default *@
+                        <MudText Typo="Typo.subtitle2" Color="Color.Default">Name</MudText>
+                        <MudText Typo="Typo.h6">@account.Name</MudText>
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudPaper Elevation="0" Class="pa-4" Style="background: #f5f5f5; border-radius: 4px;">
+                        @* Changed Color.TextSecondary to Color.Default *@
+                        <MudText Typo="Typo.subtitle2" Color="Color.Default">Balance</MudText>
+                        <MudText Typo="Typo.h6">@account.Balance</MudText>
+                    </MudPaper>
+                </MudItem>
+            </MudGrid>
+        </MudPaper>
+    }
+</MudContainer>
+
+@* The extra </div> was removed from here *@
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    
+    private Account? account;
+    
+    protected override void OnInitialized()
+    {
+        account = AccountService.GetAccountById(Id);
+    }
+}

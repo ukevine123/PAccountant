@@ -1,0 +1,102 @@
+@page "/accounts"
+@using Domain.Entities
+@using Application.Services.AccountService
+@using System.Text.Json
+
+@inject IAccountService AccountService
+
+<PageTitle>Accounts</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <MudText Typo="Typo.h4">Accounts</MudText>
+        <MudButton Href="/Accounts/create" StartIcon="@Icons.Material.Filled.Add" Variant="Variant.Filled" Color="Color.Primary">Add New Account</MudButton>
+    </div>
+    <MudDataGrid T="Account" Items="@_accounts" SortMode="SortMode.Multiple" Filterable="true" QuickFilter="@_quickFilter"
+        Hideable="true" RowClick="@RowClicked" RowContextMenuClick="@RowRightClicked" SelectedItemsChanged="@SelectedItemsChanged" MultiSelection="true">
+        <ToolBarContent>
+            <MudText Typo="Typo.h6">Account List</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="true"
+                AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
+        <Columns>
+            <SelectColumn T="Account" />
+            <PropertyColumn Property="x => x.Id" Title="ID" Sortable="false" Filterable="false" />
+            <PropertyColumn Property="x => x.Name" />
+            <PropertyColumn Property="x => x.Balance" Title="Balance" />
+            <TemplateColumn Title="Actions" Sortable="false" Filterable="false">
+                <CellTemplate Context="accountContext">
+                    <MudStack Row="true" Spacing="1">
+                        <MudButton Href="@string.Format("/Accounts/edit/{0}", accountContext.Item.Id)"
+                                   Variant="Variant.Filled" Color="Color.Warning" Size="Size.Small"
+                                   StartIcon="@Icons.Material.Filled.Edit">Edit</MudButton>
+                        <MudButton Href="@string.Format("/Accounts/{0}", accountContext.Item.Id)"
+                                   Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small"
+                                   StartIcon="@Icons.Material.Filled.MoreHoriz">View</MudButton>
+                    </MudStack>
+                </CellTemplate>
+            </TemplateColumn>
+        </Columns>
+        <PagerContent>
+            <MudDataGridPager T="Account" />
+        </PagerContent>
+    </MudDataGrid>
+
+    <MudExpansionPanels Style="flex:1" Class="mt-4">
+        <MudExpansionPanel Text="Show Events">
+            @foreach (var message in _events)
+            {
+                <MudText Typo="@Typo.body2">@message</MudText>
+            }
+            @if(_events.Count > 0) 
+            {
+                <div class="d-flex">
+                    <MudSpacer/>
+                    <MudButton Class="mt-3" ButtonType="ButtonType.Button" Variant="Variant.Filled" OnClick="@(() => _events.Clear())">Clear</MudButton>
+                </div>
+            }
+        </MudExpansionPanel>
+    </MudExpansionPanels>
+</MudContainer>
+@code {
+    private IEnumerable<Account> _accounts = new List<Account>();
+    private string _searchString;
+    private List<string> _events = new();
+
+    // quick filter - filter globally across multiple columns with the same input
+    private Func<Account, bool> _quickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(_searchString))
+            return true;
+
+        if (x.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if ($"{x.Id} {x.Balance}".Contains(_searchString))
+            return true;
+
+        return false;
+    };
+
+    protected override void OnInitialized()
+    {
+        _accounts = AccountService.GetAllAccounts();
+    }
+
+    // events
+    void RowClicked(DataGridRowClickEventArgs<Account> args)
+    {
+        _events.Insert(0, $"Event = RowClick, Index = {args.RowIndex}, Data = {JsonSerializer.Serialize(args.Item)}");
+    }
+    
+    void RowRightClicked(DataGridRowClickEventArgs<Account> args)
+    {
+        _events.Insert(0, $"Event = RowRightClick, Index = {args.RowIndex}, Data = {JsonSerializer.Serialize(args.Item)}");
+    }
+
+    void SelectedItemsChanged(HashSet<Account> items)
+    {
+        _events.Insert(0, $"Event = SelectedItemsChanged, Count = {items.Count}");
+    }
+}

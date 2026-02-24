@@ -1,0 +1,77 @@
+@page "/accounts/edit/{Id:int}"
+
+@using Domain.Entities
+@using Application.DTOs
+@using Application.Services.AccountService
+@using System.ComponentModel.DataAnnotations
+@rendermode InteractiveServer
+@inject IAccountService AccountService
+@inject NavigationManager Navigation
+
+<PageTitle>Edit Account</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="py-8">
+    <MudPaper Elevation="1" Class="pa-6">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <MudText Typo="Typo.h5">Edit Account</MudText>
+            <MudButton Href="/accounts" Variant="Variant.Outlined" Size="Size.Small">Back to list</MudButton>
+        </div>
+
+        <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="Model.Name" Label="Name" Placeholder="Enter account name"
+                        Variant="Variant.Outlined" FullWidth="true" />
+                    <ValidationMessage For="@(() => Model.Name)" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="Model.Number" Label="Account Number" Placeholder="Enter account number"
+                        Variant="Variant.Outlined" FullWidth="true" />
+                    <ValidationMessage For="@(() => Model.Number)" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudNumericField @bind-Value="Model.Balance" Label="Balance" Placeholder="Enter balance"
+                        Variant="Variant.Outlined" FullWidth="true" />
+                    <ValidationMessage For="@(() => Model.Balance)" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">
+                        Update Account
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </MudPaper>
+</MudContainer>
+
+@code{
+    [Parameter]
+
+    public int Id { get; set; }
+
+    private AccountUpdateDTOs Model { get; set; } = new();
+
+    private bool loaded;
+
+    protected override void OnParametersSet()
+    {
+        var account = AccountService.GetAccountById(Id);
+        if (account != null)
+        {
+            Model = new AccountUpdateDTOs
+            {
+               Name = account.Name ?? "",
+               Balance = account.Balance
+            };
+        }
+        loaded = true;
+    }
+
+    private void OnValidSubmit()
+    {
+        if (Model == null) return;
+        AccountService.UpdateAccount(Id, Model);
+        Navigation.NavigateTo("/accounts");
+    }
+}

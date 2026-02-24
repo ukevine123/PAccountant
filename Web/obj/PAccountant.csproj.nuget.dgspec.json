@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\ndayi\\source\\repos\\PAccountant\\web\\PAccountant.csproj": {}
   },
   "projects": {
@@ -12,11 +13,25 @@
         "projectPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\ndayi\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\obj\\",
+=======
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\PAccountant.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\PC\\source\\repos\\PAccountant\\PAccountant.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\PAccountant.csproj",
+        "projectName": "PAccountant",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\PAccountant.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\obj\\",
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\ndayi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -362,6 +377,9 @@
         ],
         "configFilePaths": [
           "C:\\Users\\ndayi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -394,6 +412,7 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+<<<<<<< HEAD
           "imports": [
             "net461",
             "net462",
@@ -1119,12 +1138,15 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+=======
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
           "dependencies": {
             "Microsoft.AspNetCore.App.Internal.Assets": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[10.0.2, )",
               "autoReferenced": true
+<<<<<<< HEAD
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
@@ -1137,6 +1159,8 @@
             "MudBlazor": {
               "target": "Package",
               "version": "[8.15.0, )"
+=======
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
             }
           },
           "imports": [
