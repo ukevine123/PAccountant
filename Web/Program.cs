@@ -1,7 +1,5 @@
 using Web.Components;
 using MudBlazor.Services;
-using Application.Services.Budgets;
-using Infrastructure.DependencyInjection;
 
 // using Application.Services.Accounts;
 
@@ -16,8 +14,7 @@ builder.Services.AddMudServices();//mudblazor services for UI components
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-    builder.Services.AddScoped<IBudgetService, BudgetService>();
-builder.Services.AddInfrastructureService(builder.Configuration); // <-- Add this line to register infrastructure services
+
 
 // / Application Services
 //  builder.Services.AddScoped<IAccountService, AccountService>();

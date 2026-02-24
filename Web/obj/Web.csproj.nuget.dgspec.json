@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\honyh\\Desktop\\PAccountant\\web\\Web.csproj": {}
+    "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj": {}
   },
   "projects": {
     "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj": {
@@ -736,6 +736,18 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "Microsoft.AspNet.Identity.Core": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[10.0.0, )"
@@ -1047,14 +1059,14 @@
         }
       }
     },
-    "C:\\Users\\honyh\\Desktop\\PAccountant\\web\\Web.csproj": {
+    "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\honyh\\Desktop\\PAccountant\\web\\Web.csproj",
+        "projectUniqueName": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\web\\Web.csproj",
+        "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj",
         "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\web\\obj\\",
+        "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
