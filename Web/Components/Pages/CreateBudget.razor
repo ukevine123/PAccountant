@@ -1,0 +1,86 @@
+@page "/Budgets/Create"
+
+@using Application.Services.Budgets
+@using Application.DTO.Budget
+@using Domain.Entities
+
+@inject IBudgetService BudgetService
+@inject NavigationManager Navigation
+@inject ISnackbar Snackbar
+
+<PageTitle>Create Budget</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-8">
+    <MudPaper Elevation="4" Class="pa-6">
+        <MudStack Spacing="4">
+            <MudText Typo="Typo.h5" Color="Color.Primary">Create New Budget</MudText>
+            <MudText Typo="Typo.body2" Class="mb-4">Enter the details below to define a new budget category and limit.</MudText>
+
+            <MudForm @ref="_form" @bind-IsValid="@_success">
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudTextField T="string" 
+                                      Label="Budget Name" 
+                                      @bind-Value="_model.Name" 
+                                      Required="true" 
+                                      RequiredError="Budget name is required!" 
+                                      Variant="Variant.Outlined" 
+                                      Adornment="Adornment.Start"
+                                      AdornmentIcon="@Icons.Material.Filled.Label" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudNumericField T="decimal" 
+                                        Label="Monthly Limit" 
+                                        @bind-Value="_model.MonthlyLimit" 
+                                        Format="C" 
+                                        Required="true" 
+                                        Min="0.01m" 
+                                        Variant="Variant.Outlined" 
+                                        Adornment="Adornment.Start"
+                                        AdornmentIcon="@Icons.Material.Filled.AttachMoney" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                         <MudTextField T="int" 
+                                      Label="Category ID" 
+                                      @bind-Value="_model.CategoryId" 
+                                      Required="true" 
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+
+                    <MudItem xs="12" Class="d-flex justify-end gap-4 mt-4">
+                        <MudButton Variant="Variant.Outlined" 
+                                   Color="Color.Secondary" 
+                                   OnClick="Cancel">Cancel</MudButton>
+                        <MudButton Variant="Variant.Filled" 
+                                   Color="Color.Primary" 
+                                   Disabled="@(!_success)" 
+                                   OnClick="Submit">Create Budget</MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        </MudStack>
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private MudForm _form = default!;
+    private bool _success;
+    private BudgetCreateDTO _model = new();
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/Budgets");
+    }
+
+    private void  Submit()
+    {
+        
+                
+            BudgetService.CreateBudget(_model);
+            Snackbar.Add("Budget created successfully!", Severity.Success);
+            Navigation.NavigateTo("/Budgets");
+                
+    }
+}
