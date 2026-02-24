@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <!-- Prevent generating the platform-specific app host during local Debug builds
+       which can lock the output executable while the app is running. This makes
+       local builds less likely to fail with MSB3021/MSB3027 file-lock errors. -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <UseAppHost>false</UseAppHost>
+  </PropertyGroup>
+ 
+   <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.0" />
+      <PackageReference Include="MudBlazor" Version="8.15.0" />
+   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Application\Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
