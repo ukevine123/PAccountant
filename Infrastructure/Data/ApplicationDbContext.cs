@@ -1,8 +1,5 @@
 using Domain.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace Infrastructure.Data
 {
@@ -12,28 +9,16 @@ namespace Infrastructure.Data
         {
         }
 
+        public DbSet<Asset> Assets { get; set;}
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Budget> Budgets{ get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Liability> Liabilities { get; set; }
-         
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<Transaction> Transactions { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
-
-            // Configure Liability entity
-            modelBuilder.Entity<Liability>()
-                .Property(l => l.Value)
-                .HasPrecision(18, 2);
+            base.OnModelCreating(builder);
         }
-        
-        
-        
-                
-
-            
-
-           
-       
-        
-        
-        
     }
 }

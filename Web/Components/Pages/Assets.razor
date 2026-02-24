@@ -1,0 +1,64 @@
+@page "/Assets"
+@using Application.Interfaces
+@using Domain.Entities
+@inject IAssetService AssetService
+@inject IDialogService DialogService
+
+<PageTitle>Assets</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudCard>
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                    <MudText Typo="Typo.h5">Assets</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="OpenCreateDialog">
+                        Add Asset
+                    </MudButton>
+                </MudStack>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudDataGrid Items="@_assets" T="Asset">
+                <Columns>
+                    <PropertyColumn Property="x => x.Id" Title="ID" />
+                    <PropertyColumn Property="x => x.Name" />
+                    <PropertyColumn Property="x => x.Type" />
+                    <PropertyColumn Property="x => x.Value" Format="C" />
+                    <TemplateColumn Title="Actions">
+                        <CellTemplate>
+                            <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="@(() => DeleteAsset(context.Item.Id))" />
+                        </CellTemplate>
+                    </TemplateColumn>
+                </Columns>
+            </MudDataGrid>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code {
+    private List<Asset> _assets = new();
+
+    protected override void OnInitialized() => LoadData();
+
+    private void LoadData() => _assets = AssetService.GetAllAssets();
+
+    private async Task OpenCreateDialog()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true, FullWidth = true };
+        var dialog = await DialogService.ShowAsync<AssetCreateDialog>("Create Asset", options);
+        var result = await dialog.Result;
+
+        if (!result.Canceled)
+        {
+            LoadData(); 
+            StateHasChanged(); // Force the list to refresh
+        }
+    }
+
+    private void DeleteAsset(int id)
+    {
+        // Add your AssetService.Delete(id) logic here
+        _assets = _assets.Where(x => x.Id != id).ToList();
+    }
+}

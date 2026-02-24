@@ -28,6 +28,9 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+    "C:\\Users\\KEVINE\\.nuget\\packages\\": {},
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
     "C:\\Users\\ndayi\\.nuget\\packages\\": {},
 =======
@@ -36,11 +39,19 @@
 =======
     "C:\\Users\\honyh\\.nuget\\packages\\": {},
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\KEVINE\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+      "projectName": "Application",
+      "projectPath": "C:\\Users\\KEVINE\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\KEVINE\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KEVINE\\source\\repos\\PAccountant\\Core\\Application\\obj\\",
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
@@ -62,11 +73,15 @@
       "packagesPath": "C:\\Users\\honyh\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\obj\\",
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
+        "C:\\Users\\KEVINE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
         "C:\\Users\\ndayi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -76,6 +91,7 @@
 =======
         "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -87,13 +103,21 @@
 <<<<<<< HEAD
         "C:\\Program Files\\dotnet\\library-packs": {},
 =======
+<<<<<<< HEAD
+        "C:\\Program Files\\dotnet\\library-packs": {},
+=======
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
+<<<<<<< HEAD
+            "C:\\Users\\KEVINE\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\KEVINE\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj"
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
             "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {
@@ -106,6 +130,7 @@
             "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj"
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
             }
           }
         }
@@ -144,8 +169,12 @@
 <<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
 =======
+<<<<<<< HEAD
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

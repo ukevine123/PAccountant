@@ -1,10 +1,10 @@
-namespace Domain.Entities;
-
-public  class Asset
+namespace Domain.Entities
 {
-    public string Id { get; set; } 
-    public string Name { get; set; } 
-     public string Tpe { get; set; } 
-    public decimal Value { get; set; } 
-    
+    public class Asset
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public decimal Value { get; set; }
+    }
 }

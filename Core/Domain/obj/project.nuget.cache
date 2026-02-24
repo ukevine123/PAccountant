@@ -1,6 +1,11 @@
 {
   "version": 2,
 <<<<<<< HEAD
+  "dgSpecHash": "ENem3Vd99Ws=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\KEVINE\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj",
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
   "dgSpecHash": "nSqeZ9Rz+U8=",
   "success": true,
@@ -15,6 +20,7 @@
   "success": true,
   "projectFilePath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj",
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
+>>>>>>> 60dec145b011410963df39c406b84464b2404b64
   "expectedPackageFiles": [],
   "logs": []
 }
