@@ -2,6 +2,19 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+    "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\ndayi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Domain\\obj\\",
+=======
     "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj": {}
   },
   "projects": {
@@ -13,6 +26,7 @@
         "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Domain\\obj\\",
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
 =======
     "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Domain\\Domain.csproj": {}
   },
@@ -32,7 +46,11 @@
         ],
         "configFilePaths": [
 <<<<<<< HEAD
+<<<<<<< HEAD
+          "C:\\Users\\ndayi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
 =======
           "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab

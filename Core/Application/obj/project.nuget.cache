@@ -1,9 +1,15 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
+  "dgSpecHash": "A1qDWFWg17Q=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+=======
   "dgSpecHash": "aSlkBvpG7Og=",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj",
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
 =======
   "dgSpecHash": "0nd3Wlsp6Ug=",
   "success": true,

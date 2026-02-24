@@ -51,6 +51,9 @@
           }
         }
       },
+<<<<<<< HEAD
+      "Microsoft.AspNetCore.App.Internal.Assets/10.0.2": {
+=======
       "Microsoft.AspNet.Identity.Core/2.2.4": {
         "type": "package",
         "compile": {
@@ -1601,11 +1604,20 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Application": "1.0.0",
+<<<<<<< HEAD
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "10.0.0",
+          "Microsoft.EntityFrameworkCore": "10.0.0",
+          "Microsoft.EntityFrameworkCore.Design": "10.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "10.0.0",
+          "Microsoft.EntityFrameworkCore.Tools": "10.0.0"
+=======
           "Microsoft.AspNet.Identity.Core": "2.2.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.0",
           "Microsoft.AspNetCore.Identity.UI": "10.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.0"
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
         },
         "compile": {
           "bin/placeholder/Infrastructure.dll": {}
@@ -1675,6 +1687,12 @@
         "logo.png"
       ]
     },
+<<<<<<< HEAD
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.2": {
+      "sha512": "fMAqrUm+aspxRAsCJ6Hlgs96XSHwNIr9HBNt7wyBAzQkPlfE7w+0C4NzDoJnso5YZyDI0VcRtEXxG9odt3KiZA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.app.internal.assets/10.0.2",
+=======
     "Microsoft.AspNet.Identity.Core/2.2.4": {
       "sha512": "s3u/o3iG5h0z7Ggukwo4soPwogD56ZrYbolGxTfw41zkuG6jAXUJT/V3EThqHJXGuCNvWSdSnnwAhPfT9Sn36g==",
       "type": "package",
@@ -4153,7 +4171,11 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+    "C:\\Users\\ndayi\\.nuget\\packages\\": {},
+=======
     "C:\\Users\\PC\\.nuget\\packages\\": {},
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
 =======
     "C:\\Users\\honyh\\.nuget\\packages\\": {},
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
@@ -4163,11 +4185,19 @@
     "version": "1.0.0",
     "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\web\\Web.csproj",
+      "projectName": "Web",
+      "projectPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\web\\Web.csproj",
+      "packagesPath": "C:\\Users\\ndayi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\web\\obj\\",
+=======
       "projectUniqueName": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\Web.csproj",
       "projectName": "Web",
       "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\Web.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\web\\obj\\",
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
 =======
       "projectUniqueName": "C:\\Users\\honyh\\Desktop\\PAccountant\\Web\\Web.csproj",
       "projectName": "Web",
@@ -4181,7 +4211,11 @@
       ],
       "configFilePaths": [
 <<<<<<< HEAD
+<<<<<<< HEAD
+        "C:\\Users\\ndayi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
 =======
         "C:\\Users\\honyh\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
@@ -4204,11 +4238,19 @@
           "targetAlias": "net10.0",
           "projectReferences": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+            "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj"
+            },
+            "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\ndayi\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj"
+=======
             "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Core\\Application\\Application.csproj"
             },
             "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj": {
               "projectPath": "C:\\Users\\PC\\source\\repos\\PAccountant\\Infrastructure\\Infrastructure.csproj"
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
 =======
             "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj": {
               "projectPath": "C:\\Users\\honyh\\Desktop\\PAccountant\\Core\\Application\\Application.csproj"
@@ -4699,6 +4741,9 @@
         }
       }
     }
+<<<<<<< HEAD
+  }
+=======
   },
   "logs": [
     {
@@ -4712,4 +4757,5 @@
       ]
     }
   ]
+>>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
 }

@@ -1,7 +1,7 @@
-namespace Domain.Entities
+namespace Domain.Entities;
+
+public class Transaction
 {
-    public class Transaction
-    {
     public string Id { get; set; } 
     public string FromAccountId { get; set; } 
     public string ToAccountId { get; set; } 
@@ -9,5 +9,4 @@ namespace Domain.Entities
     public DateTime Date { get; set; } = DateTime.UtcNow;
     public string CategoryId { get; set; } 
    
-    }
 }

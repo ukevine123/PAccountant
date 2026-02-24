@@ -1,4 +1,18 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.deps.json
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.dll
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.pdb
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.sourcelink.json
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.dll
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.pdb
+C:\Users\ndayi\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\ref\Domain.dll
+=======
 C:\Users\PC\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.deps.json
 C:\Users\PC\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.dll
 C:\Users\PC\source\repos\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.pdb
@@ -11,6 +25,7 @@ C:\Users\PC\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.dll
 C:\Users\PC\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\refint\Domain.dll
 C:\Users\PC\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\Domain.pdb
 C:\Users\PC\source\repos\PAccountant\Core\Domain\obj\Debug\net10.0\ref\Domain.dll
+>>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
 =======
 C:\Users\honyh\Desktop\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.deps.json
 C:\Users\honyh\Desktop\PAccountant\Core\Domain\bin\Debug\net10.0\Domain.dll
