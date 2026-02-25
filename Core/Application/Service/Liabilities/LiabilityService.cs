@@ -6,28 +6,37 @@ namespace Application.Service.Liabilities
 {
     public class LiabilityService : ILiabilityService
     {
-          private readonly ILiability _liability;
-        // Constructor 
-        public LiabilityService(ILiability liability)
+        private readonly ILiability _liabilityRepository;
+
+        public LiabilityService(ILiability liabilityRepository)
         {
-            _liability = liability;
+            _liabilityRepository = liabilityRepository;
         }
-          public List<Liability> GetAllLiabilities()
+
+        public async Task<List<Liability>> GetAllLiabilitiesAsync()
         {
-            List<Liability> liabilities = _liability.GetAllLiabilities();
-            return liabilities;
+            return await Task.Run(() => _liabilityRepository.GetAllLiabilities());
         }
-         public Liability GetLiabilityById(int id)
+
+        public async Task<Liability?> GetLiabilityByIdAsync(int id)
         {
-            return _liability.GetLiabilityById(id); 
-        }  
-          public void CreateLiability(LiabilityCreateDTO liabilityDTO)
+            return await Task.Run(() => _liabilityRepository.GetLiabilityById(id));
+        }
+
+        public async Task CreateLiabilityAsync(LiabilityCreateDTO liabilityDTO)
         {
-            _liability.CreateLiability(liabilityDTO);
-        }   
-        public void UpdateLiability(int id, LiabilityUpdateDTO liabilityDTO)
+            await Task.Run(() => _liabilityRepository.CreateLiability(liabilityDTO));
+        }
+
+        public async Task UpdateLiabilityAsync(int id, LiabilityUpdateDTO liabilityDTO)
         {
-            _liability.UpdateLiability(id,liabilityDTO);
-    }   
+            await Task.Run(() => _liabilityRepository.UpdateLiability(id, liabilityDTO));
+        }
+
+        public async Task<decimal> GetTotalDebtAsync()
+        {
+            var all = await Task.Run(() => _liabilityRepository.GetAllLiabilities());
+            return all.Sum(x => x.Value); // Using .Value based on your Entity
+        }
     }
 }

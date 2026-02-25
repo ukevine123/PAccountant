@@ -1,15 +1,15 @@
 
 using Application.DTO;
 using Domain.Entities;
-namespace Application.Service.Liabilities
+
+namespace Application.Interface
 {
     public interface ILiabilityService
     {
-       
-        List<Liability> GetAllLiabilities();
-        public Liability GetLiabilityById(int id);
-        void CreateLiability(LiabilityCreateDTO liabilityDTO);
-        void UpdateLiability(int id, LiabilityUpdateDTO liabilityDTO);
+       Task<List<Liability>> GetAllLiabilitiesAsync();
+        Task<Liability?> GetLiabilityByIdAsync(int id);
+        Task CreateLiabilityAsync(LiabilityCreateDTO liabilityDTO);
+        Task UpdateLiabilityAsync(int id, LiabilityUpdateDTO liabilityDTO);
+        Task<decimal> GetTotalDebtAsync();
     }
-
 }

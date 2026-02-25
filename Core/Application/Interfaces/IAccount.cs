@@ -7,8 +7,8 @@ namespace Application.Interfaces
     public interface IAccount
     {
         public List<Account> GetAllAccounts ();
-        public Account? GetAccountById(int id);
+        public Account? GetAccountById(string id);
         void CreateAccount(AccountCreateDTOs accountDto);
-        void UpdateAccount(int id, AccountUpdateDTOs accountDto);
+        void UpdateAccount(string id, AccountUpdateDTOs accountDto);
     }
 }

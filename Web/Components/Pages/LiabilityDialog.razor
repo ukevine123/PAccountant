@@ -1,56 +1,28 @@
-@using  Application.DTO
-@using System.ComponentModel.DataAnnotations
-@using Domain.Entities
-@using Application.Service.Liabilities
-@using MudBlazor
-@using MudBlazor.Services
-@using Microsoft.AspNetCore.Components
-@using Microsoft.EntityFrameworkCore.Metadata.Internal
-@inject NavigationManager Navigation
+@using Application.DTO
+@using Application.Interface
 @inject ILiabilityService LiabilityService
 @inject ISnackbar Snackbar
-@inject IDialogService DialogService
-
 
 <MudDialog>
-<DialogContent>
-    <EditForm Model="Model" OnValidSubmit="onValidSubmit">
-        <DataAnnotationsValidator />
-        <MudGrid>
-            <MudItem xs="12">
-                <MudTextField Label="Name" @bind-Value="Model.Name" For="@(() => Model.Name)" />
-            </MudItem>
-            <MudItem xs="12">
-                <MudTextField Label="Type" @bind-Value="Model.Type" For="@(() => Model.Type)" />
-            </MudItem>
-             <MudItem xs="12">
-                <MudTextField Label="Value" @bind-Value="Model.Value" For="@(() => Model.Value)" />
-            </MudItem>
-             
-            
-            <MudItem xs="12" class="d-flex justify-content-end">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit">Add Liability</MudButton>
-            </MudItem>
-             
-           
-        </MudGrid>
-
-    </EditForm>
-</DialogContent>
+    <DialogContent>
+        <EditForm Model="Model" OnValidSubmit="onValidSubmit">
+            <DataAnnotationsValidator />
+            <MudTextField Label="Name" @bind-Value="Model.Name" />
+            <MudTextField Label="Type" @bind-Value="Model.Type" />
+            <MudTextField Label="Value" @bind-Value="Model.Value" />
+            <MudButton Class="mt-4" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">Add Liability</MudButton>
+        </EditForm>
+    </DialogContent>
 </MudDialog>
 
-@code{
+@code {
     [CascadingParameter] IMudDialogInstance DialogInstance { get; set; }
+    private LiabilityCreateDTO Model { get; set; } = new();
 
-    private LiabilityCreateDTO Model {get;set;} = new ();
-   
-
-
-    private void onValidSubmit()
+    private async Task onValidSubmit()
     {
-        LiabilityService.CreateLiability(Model);
-        Snackbar.Add("Liability created successfully!", Severity.Success);
-        DialogInstance.Close();
+        await LiabilityService.CreateLiabilityAsync(Model);
+        Snackbar.Add("Created!", Severity.Success);
+        DialogInstance.Close(DialogResult.Ok(true));
     }
-
 }

@@ -1,0 +1,92 @@
+@using Application.DTO
+@using Domain.Entities
+@using Application.Interface
+@inject ITransactionService TransactionService
+@inject ISnackbar Snackbar
+
+<MudDialog>
+    <DialogContent>
+        <EditForm Model="model" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudNumericField Label="Amount" @bind-Value="model.Amount" 
+                                    Format="N2" Variant="Variant.Outlined" 
+                                    HideSpinButtons="true" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" />
+                </MudItem>
+
+                <MudItem xs="12">
+                    <MudSelect T="TransactionKind" Label="Type" @bind-Value="model.Kind" Variant="Variant.Outlined">
+                        @foreach (TransactionKind item in Enum.GetValues(typeof(TransactionKind)))
+                        {
+                            <MudSelectItem Value="@item">@item.ToString()</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+
+                @if (model.Kind == TransactionKind.Income || model.Kind == TransactionKind.Expense)
+                {
+                    <MudItem xs="12">
+                        <MudSelect T="string" Label="Category" @bind-Value="model.CategoryId" Variant="Variant.Outlined">
+                            <MudSelectItem T="string" Value="@("1")">Salary / Income</MudSelectItem>
+                            <MudSelectItem T="string" Value="@("2")">Food & Groceries</MudSelectItem>
+                            <MudSelectItem T="string" Value="@("3")">Rent / Mortgage</MudSelectItem>
+                        </MudSelect>
+                    </MudItem>
+                }
+
+                <MudItem xs="6">
+                    <MudTextField Label="From Account" @bind-Value="model.FromAccountId" 
+                                 Placeholder="e.g. Bank Account" Variant="Variant.Outlined" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudTextField Label="To Account" @bind-Value="model.ToAccountId" 
+                                 Placeholder="e.g. Cash" Variant="Variant.Outlined" />
+                </MudItem>
+
+                <MudItem xs="12">
+                    <MudDatePicker Label="Date" @bind-Date="_pickerDate" Variant="Variant.Outlined" />
+                </MudItem>
+
+                <MudItem xs="12" Class="d-flex justify-end gap-2 pt-4">
+                    <MudButton OnClick="Cancel">Cancel</MudButton>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="px-8">
+                        Save Transaction
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    [CascadingParameter] IMudDialogInstance MudDialog { get; set; } = default!;
+    
+    private DateTime? _pickerDate = DateTime.Now;
+    
+    // model.Id defaults to 0, which tells EF Core "This is a new record"
+    private Domain.Entities.Transaction model = new();
+
+    private async Task OnValidSubmit()
+    {
+        model.Date = _pickerDate ?? DateTime.Now;
+
+        // Clean up empty strings to avoid foreign key issues if applicable
+        if (string.IsNullOrWhiteSpace(model.FromAccountId)) model.FromAccountId = null;
+        if (string.IsNullOrWhiteSpace(model.ToAccountId)) model.ToAccountId = null;
+
+        var result = await TransactionService.AddTransactionAsync(model);
+
+        if (result.Success)
+        {
+            Snackbar.Add("Transaction Saved", Severity.Success);
+            MudDialog.Close(DialogResult.Ok(true));
+        }
+        else
+        {
+            Snackbar.Add($"Save failed: {result.Error}", Severity.Error);
+        }
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+}

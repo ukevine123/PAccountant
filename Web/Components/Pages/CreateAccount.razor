@@ -2,10 +2,11 @@
 @rendermode InteractiveServer
 
 @using Application.DTOs
-@using Application.Services.AccountService
+@using Application.Interfaces
 @inject IAccountService AccountService
 @inject NavigationManager Navigation
 @using System.ComponentModel.DataAnnotations
+@using Application.Services.AccountService
 
 <PageTitle>Create Account</PageTitle>
 
@@ -16,21 +17,31 @@
             <MudButton Href="/accounts" Variant="Variant.Outlined" Size="Size.Small">Back to list</MudButton>
         </div>
 
-        <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+        @* Note: OnValidSubmit must match the method name in @code exactly *@
+        <EditForm Model="Model" OnValidSubmit="HandleValidSubmit">
             <DataAnnotationsValidator />
             <MudGrid>
                 <MudItem xs="12">
-                    <MudTextField @bind-Value="Model.Name" Label="Name" Placeholder="Enter account name" 
-                        Variant="Variant.Outlined" FullWidth="true" />
-                    <ValidationMessage For="@(() => Model.Name)" />
+                    <MudTextField @bind-Value="Model.Name" 
+                                  Label="Name" 
+                                  Placeholder="Enter account name" 
+                                  Variant="Variant.Outlined" 
+                                  FullWidth="true" 
+                                  For="@(() => Model.Name)" />
                 </MudItem>
                 <MudItem xs="12">
-                    <MudNumericField @bind-Value="Model.Balance" Label="Initial Balance" Placeholder="Enter balance"
-                        Variant="Variant.Outlined" FullWidth="true" />
-                    <ValidationMessage For="@(() => Model.Balance)" />
+                    <MudNumericField @bind-Value="Model.Balance" 
+                                     Label="Initial Balance" 
+                                     Placeholder="Enter balance"
+                                     Variant="Variant.Outlined" 
+                                     FullWidth="true" 
+                                     For="@(() => Model.Balance)" />
                 </MudItem>
                 <MudItem xs="12">
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">
+                    <MudButton ButtonType="ButtonType.Submit" 
+                               Variant="Variant.Filled" 
+                               Color="Color.Primary" 
+                               FullWidth="true">
                         Create Account
                     </MudButton>
                 </MudItem>
@@ -39,16 +50,21 @@
     </MudPaper>
 </MudContainer>
 
-@code{
-    private AccountCreateDTOs  Model {get; set;} = new();
+@code {
+    private AccountCreateDTOs Model { get; set; } = new();
 
-    private async Task OnValidSubmit()
+    // Renamed to HandleValidSubmit to be explicit and avoid conflicts
+    private async Task HandleValidSubmit()
     {
+        // Debugging: If the button still "does nothing," 
+        // it means the DataAnnotationsValidator found an error in your Model.
+        
         var req = new CreateAccountRequest
         {
             Name = Model.Name,
             InitialBalance = Model.Balance
         };
+
         await AccountService.CreateAccountAsync(req);
         Navigation.NavigateTo("/accounts");
     }

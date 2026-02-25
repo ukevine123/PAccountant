@@ -1,7 +1,108 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+@* 1. The namespace we just discovered *@
+@using Application.Services.AccountService
+@using Application.Interfaces
+@using Application.Interface
 
-<h1>Hello, world!</h1>
+@* 2. Other necessary namespaces *@
+@using Domain.Entities
+@using Application.DTOs
+@using Application.DTO
 
-Welcome to your new app.
+@* 3. Injecting the services *@
+@inject IAccountService AccountService
+@inject IAssetService AssetService
+@inject ILiabilityService LiabilityService
+@inject ITransactionService TransactionService
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+
+<PageTitle>Dashboard - PAccountant</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudText Typo="Typo.h4" Class="mb-6">Financial Overview</MudText>
+
+    @* Summary Cards *@
+    <MudGrid Class="mb-8">
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Class="pa-4 border-l-4 border-solid mud-border-primary" Elevation="2">
+                <MudText Typo="Typo.overline">Cash & Bank</MudText>
+                <MudText Typo="Typo.h6">@totalAccounts.ToString("C")</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Class="pa-4 border-l-4 border-solid mud-border-success" Elevation="2">
+                <MudText Typo="Typo.overline">Assets & Loans Given</MudText>
+                <MudText Typo="Typo.h6">@totalAssets.ToString("C")</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Class="pa-4 border-l-4 border-solid mud-border-error" Elevation="2">
+                <MudText Typo="Typo.overline">Total Liabilities</MudText>
+                <MudText Typo="Typo.h6">@totalLiabilities.ToString("C")</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Class="pa-4 mud-theme-primary" Elevation="4">
+                <MudText Typo="Typo.overline" Style="color: rgba(255,255,255,0.7)">NET WORTH</MudText>
+                <MudText Typo="Typo.h6"><b>@((totalAccounts + totalAssets - totalLiabilities).ToString("C"))</b></MudText>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+
+    @* Recent Transactions Table *@
+    <MudCard Elevation="3">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                    <MudText Typo="Typo.h5"><b>Recent Transactions</b></MudText>
+                    <MudButton Variant="Variant.Outlined" Color="Color.Primary" Href="/transactions">View All</MudButton>
+                </MudStack>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudDataGrid T="TransactionDto" Items="@recentTransactions" Hover="true" Striped="true" Dense="true">
+                <Columns>
+                    <PropertyColumn Property="x => x.Date" Title="Date" Format="yyyy-MM-dd" />
+                    <PropertyColumn Property="x => x.CategoryName" Title="Category" />
+                    <PropertyColumn Property="x => x.Amount" Title="Amount">
+                        <CellTemplate>
+                            <MudText Color="@(context.Item.Kind == TransactionKind.Expense ? Color.Error : Color.Success)">
+                                @context.Item.Amount.ToString("C")
+                            </MudText>
+                        </CellTemplate>
+                    </PropertyColumn>
+                    <PropertyColumn Property="x => x.Kind" Title="Type" />
+                </Columns>
+            </MudDataGrid>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code {
+    private IEnumerable<TransactionDto> recentTransactions = new List<TransactionDto>();
+    private decimal totalAccounts;
+    private decimal totalAssets;
+    private decimal totalLiabilities;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadDashboardData();
+    }
+
+   private async Task LoadDashboardData()
+{
+    // 1. Get transactions (Await this first)
+   recentTransactions = await TransactionService.GetRecentTransactionsAsync(10);
+    totalAccounts = await AccountService.GetTotalBalanceAsync();
+   
+
+    // 2. Load totals one by one to avoid DbContext collisions
+    totalAccounts = await AccountService.GetTotalBalanceAsync();
+    totalAssets = await AssetService.GetTotalValueAsync();
+    totalLiabilities = await LiabilityService.GetTotalDebtAsync();
+    
+    StateHasChanged();
+}
+}

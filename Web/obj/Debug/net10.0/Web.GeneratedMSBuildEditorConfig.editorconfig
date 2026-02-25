@@ -45,6 +45,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2NvdW50cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/AssetCreateDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBc3NldENyZWF0ZURpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/Assets.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBc3NldHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -53,12 +61,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDcmVhdGVBY2NvdW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/CreateLiability.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDcmVhdGVMaWFiaWxpdHkucmF6b3I=
+[C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/CreateAsset.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDcmVhdGVBc3NldC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/EditAccount.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0QWNjb3VudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/EditAsset.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0QXNzZXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/EditLiability.razor]
@@ -87,6 +99,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3RGb3VuZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/TransactionDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmFuc2FjdGlvbkRpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/Transactions.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUcmFuc2FjdGlvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ndayi/source/repos/PAccountant/web/Components/Pages/Weather.razor]

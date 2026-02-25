@@ -21,7 +21,7 @@ namespace Infrastructure.Repositories
             List<Account> accounts = _dbContext.Accounts.ToList();
             return accounts;
         }
-         public Account? GetAccountById(int id)
+         public Account? GetAccountById(string id)
          {
              return _dbContext.Accounts.FirstOrDefault(c => c.Id == id);
          }
@@ -30,6 +30,7 @@ namespace Infrastructure.Repositories
             Account account = new()
             {
                 Name = accountDTO.Name,
+                Number = accountDTO.Number,
                 Balance = accountDTO.Balance,
                 CreatedAt = DateTime.Now,
                 CreatedById = 1
@@ -37,7 +38,7 @@ namespace Infrastructure.Repositories
             _dbContext.Accounts.Add(account);
             _dbContext.SaveChanges();
         }
-        public void UpdateAccount(int id, AccountUpdateDTOs accountDTO)
+        public void UpdateAccount(string id, AccountUpdateDTOs accountDTO)
         {
             var account = _dbContext.Accounts.Find(id);
             if (account == null) return;

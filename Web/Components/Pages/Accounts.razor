@@ -1,6 +1,7 @@
 @page "/accounts"
-@using Domain.Entities
 @using Application.Services.AccountService
+@using Domain.Entities
+@using Application.Interfaces
 @using System.Text.Json
 
 @inject IAccountService AccountService
@@ -12,6 +13,7 @@
         <MudText Typo="Typo.h4">Accounts</MudText>
         <MudButton Href="/Accounts/create" StartIcon="@Icons.Material.Filled.Add" Variant="Variant.Filled" Color="Color.Primary">Add New Account</MudButton>
     </div>
+    
     <MudDataGrid T="Account" Items="@_accounts" SortMode="SortMode.Multiple" Filterable="true" QuickFilter="@_quickFilter"
         Hideable="true" RowClick="@RowClicked" RowContextMenuClick="@RowRightClicked" SelectedItemsChanged="@SelectedItemsChanged" MultiSelection="true">
         <ToolBarContent>
@@ -28,10 +30,10 @@
             <TemplateColumn Title="Actions" Sortable="false" Filterable="false">
                 <CellTemplate Context="accountContext">
                     <MudStack Row="true" Spacing="1">
-                        <MudButton Href="@string.Format("/Accounts/edit/{0}", accountContext.Item.Id)"
+                        <MudButton Href="@($"/Accounts/edit/{accountContext.Item.Id}")"
                                    Variant="Variant.Filled" Color="Color.Warning" Size="Size.Small"
                                    StartIcon="@Icons.Material.Filled.Edit">Edit</MudButton>
-                        <MudButton Href="@string.Format("/Accounts/{0}", accountContext.Item.Id)"
+                        <MudButton Href="@($"/Accounts/{accountContext.Item.Id}")"
                                    Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small"
                                    StartIcon="@Icons.Material.Filled.MoreHoriz">View</MudButton>
                     </MudStack>
@@ -59,12 +61,12 @@
         </MudExpansionPanel>
     </MudExpansionPanels>
 </MudContainer>
+
 @code {
     private IEnumerable<Account> _accounts = new List<Account>();
-    private string _searchString;
+    private string _searchString = string.Empty; // Fixed: Initialized to avoid CS8618
     private List<string> _events = new();
 
-    // quick filter - filter globally across multiple columns with the same input
     private Func<Account, bool> _quickFilter => x =>
     {
         if (string.IsNullOrWhiteSpace(_searchString))
@@ -79,12 +81,12 @@
         return false;
     };
 
-    protected override void OnInitialized()
+    // Fixed: Changed to Async to support await
+    protected override async Task OnInitializedAsync()
     {
-        _accounts = AccountService.GetAllAccounts();
+        _accounts = await AccountService.GetAllAccountsAsync();
     }
 
-    // events
     void RowClicked(DataGridRowClickEventArgs<Account> args)
     {
         _events.Insert(0, $"Event = RowClick, Index = {args.RowIndex}, Data = {JsonSerializer.Serialize(args.Item)}");

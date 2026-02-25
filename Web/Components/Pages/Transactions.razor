@@ -1,0 +1,131 @@
+@page "/transactions"
+
+@using Application.Interface
+@using Application.DTO
+@using Application.Interfaces
+@using Application.Services.AccountService
+@using Domain.Entities
+@inject IAccountService AccountService
+@inject ITransactionService TransactionService
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+
+<PageTitle>Transactions - PAccountant</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
+    <MudCard Elevation="3">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Style="width: 100%;">
+                    <MudText Typo="Typo.h5"><b>Transaction History</b></MudText>
+                    <MudButton Variant="Variant.Filled" 
+                               StartIcon="@Icons.Material.Filled.Add" 
+                               Color="Color.Primary" 
+                               OnClick="@(() => OpenDialog())">
+                        Add Transaction
+                    </MudButton>
+                </MudStack>
+            </CardHeaderContent>
+        </MudCardHeader>
+        
+        <MudCardContent>
+            <MudDataGrid T="TransactionDto" 
+                         Items="@transactions" 
+                         SortMode="SortMode.Multiple" 
+                         Filterable="true" 
+                         QuickFilter="@_quickFilter" 
+                         Hideable="true"
+                         Hover="true" 
+                         Striped="true">
+                <ToolBarContent>
+                    <MudSpacer />
+                    <MudTextField @bind-Value="_searchString" 
+                                  Placeholder="Search Category, Type, or Account..." 
+                                  Adornment="Adornment.Start" 
+                                  Immediate="true" 
+                                  AdornmentIcon="@Icons.Material.Filled.Search" 
+                                  IconSize="Size.Medium" 
+                                  Class="mt-0"></MudTextField>
+                </ToolBarContent>
+                
+                <Columns>
+                    <PropertyColumn Property="x => x.Date" Title="Date" Format="yyyy-MM-dd" Sortable="true" />
+                    
+                    <PropertyColumn Property="x => x.Kind" Title="Type" Sortable="true">
+                        <CellTemplate>
+                            @{
+                                var color = context.Item.Kind == TransactionKind.Income ? Color.Success : 
+                                            context.Item.Kind == TransactionKind.Expense ? Color.Error : Color.Info;
+                            }
+                            <MudChip T="string" Color="@color" Size="Size.Small" Variant="Variant.Text"><b>@context.Item.Kind</b></MudChip>
+                        </CellTemplate>
+                    </PropertyColumn>
+
+                    <PropertyColumn Property="x => x.CategoryName" Title="Category" Sortable="true" />
+
+                    <PropertyColumn Property="x => x.Amount" Title="Amount" Sortable="true">
+                         <CellTemplate>
+                            <MudText Typo="Typo.body2" Color="@(context.Item.Kind == TransactionKind.Expense ? Color.Error : Color.Default)">
+                                @context.Item.Amount.ToString("C")
+                            </MudText>
+                        </CellTemplate>
+                    </PropertyColumn>
+
+                    <PropertyColumn Property="x => x.FromAccountId" Title="From" />
+                    <PropertyColumn Property="x => x.ToAccountId" Title="To" />
+                    
+                    <TemplateColumn Title="Actions" Sortable="false" Filterable="false">
+                        <CellTemplate>
+                            <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" Size="Size.Small" />
+                        </CellTemplate>
+                    </TemplateColumn>
+                </Columns>
+                
+                <PagerContent>
+                    <MudDataGridPager T="TransactionDto" />
+                </PagerContent>
+            </MudDataGrid>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
+
+@code 
+{
+    private IEnumerable<TransactionDto> transactions = new List<TransactionDto>();
+    private string _searchString = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        // Fetch only the list - sequential await to avoid DbContext threading issues
+        transactions = await TransactionService.GetRecentTransactionsAsync(50);
+    }
+
+    private Func<TransactionDto, bool> _quickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(_searchString)) return true;
+        if (x.Kind.ToString().Contains(_searchString, StringComparison.OrdinalIgnoreCase)) return true;
+        if (x.CategoryName?.Contains(_searchString, StringComparison.OrdinalIgnoreCase) ?? false) return true;
+        if (x.FromAccountId?.Contains(_searchString, StringComparison.OrdinalIgnoreCase) ?? false) return true;
+        if (x.ToAccountId?.Contains(_searchString, StringComparison.OrdinalIgnoreCase) ?? false) return true;
+        if ($"{x.Amount}".Contains(_searchString)) return true;
+        return false;
+    };
+
+    private async Task OpenDialog()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.Small, FullWidth = true };
+        var dialog = await DialogService.ShowAsync<TransactionDialog>("New Transaction", options);
+        var result = await dialog.Result;
+        
+        if (result != null && !result.Canceled)
+        {
+            await LoadData(); 
+            Snackbar.Add("Transaction Processed", Severity.Success);
+        }
+    }
+}

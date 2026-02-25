@@ -6,10 +6,11 @@ namespace Application.Services.AccountService
 {
     public interface IAccountService
     {
-    Task<AccountDto> CreateAccountAsync (CreateAccountRequest request);
-    Account? GetAccountById(int Id);
-    List<Account> GetAllAccounts();
-    void UpdateAccount(int Id, AccountUpdateDTOs accountDto);
+   Task<List<Account>> GetAllAccountsAsync();
+        Task<Account?> GetAccountByIdAsync(string id);
+        Task CreateAccountAsync(CreateAccountRequest request);
+        Task UpdateAccountAsync(string id, AccountUpdateDTOs accountDTO);
+        Task<decimal> GetTotalBalanceAsync(); // For the "Cash & Bank" total
 
     }
 }

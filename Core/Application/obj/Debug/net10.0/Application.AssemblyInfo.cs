@@ -13,23 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60dec145b011410963df39c406b84464b2404b64")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c952d652dfc72de3104880b9a6670da254b05047")]
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ff5f160f65d8ba44ab379816840577e89819118")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1680bf4191c7032f5359590f0b697a908fc7086")]
->>>>>>> bfdf974c1bf69252bf1badad34f77039d620122d
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
->>>>>>> 00e74d0f76207fceaa8cd355cf953bed683cccab
->>>>>>> 60dec145b011410963df39c406b84464b2404b64
->>>>>>> e67b5ac06a94ca96d4e8fdfde844a200ce9c77b5
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+578ab323ec0e1a8cbbe1e1a026c7400bd9a19f40")]
 [assembly: System.Reflection.AssemblyProductAttribute("Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

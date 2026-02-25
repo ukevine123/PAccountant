@@ -30,8 +30,17 @@ namespace Infrastructure.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedById")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Number")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -71,9 +80,8 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CategoryId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("MonthlyLimit")
                         .HasColumnType("decimal(18,2)");
@@ -99,15 +107,16 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Liability", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tpe")
-                        .IsRequired()
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Value")
@@ -120,14 +129,19 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Transaction", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AccountId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("CategoryId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
@@ -137,13 +151,30 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Kind")
+                        .HasColumnType("int");
+
                     b.Property<string>("ToAccountId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AccountId");
+
                     b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Transaction", b =>
+                {
+                    b.HasOne("Domain.Entities.Account", null)
+                        .WithMany("Transactions")
+                        .HasForeignKey("AccountId");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Account", b =>
+                {
+                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }

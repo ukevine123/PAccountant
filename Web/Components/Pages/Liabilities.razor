@@ -1,147 +1,79 @@
 @page "/Liabilities"
-
-@using Application.Service.Liabilities
 @using Domain.Entities
+@using Application.Interface
+@using Application.DTO
 
 @inject ILiabilityService LiabilityService
-@inject NavigationManager Navigation
 @inject IDialogService DialogService
+@inject ISnackbar Snackbar
 
-<PageTitle>Liability</PageTitle>
+<PageTitle>Liabilities - PAccountant</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="mt-4">
-    <MudCard>
-        <MudCardHeader>
-            <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Style="width: 100%;">
-                <MudText Typo="Typo.h5">Liabilities</MudText>
-               <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(() => OpenDialog())">Add Liability</MudButton>
-    
-            </MudStack>
-        </MudCardHeader>
-        <MudCardContent>
-            <MudDataGrid T="Liability" MultiSelection="true" Items="@liabilities" SortMode="SortMode.Multiple" 
-                         Filterable="true" QuickFilter="@_quickFilter" Hideable="true" 
-                         RowClick="@RowClicked" SelectedItemsChanged="@SelectedItemsChanged">
-                <ToolBarContent>
-                    <MudText Typo="Typo.h6">Liabilities List</MudText>
-                    <MudSpacer />
-                    <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" 
-                                  Immediate="true" AdornmentIcon="@Icons.Material.Filled.Search" 
-                                  IconSize="Size.Medium" Class="mt-0"></MudTextField>
-                </ToolBarContent>
-                <Columns>
-                    <SelectColumn T="Liability" />
-                    <PropertyColumn Property="x => x.Id" Title="ID" Sortable="true" Filterable="true" />
-                    <PropertyColumn Property="x => x.Name" Title="Name" Sortable="true" Filterable="true" />
-                    <PropertyColumn Property="x => x.Type" Title="Type" Sortable="true" Filterable="true" />
-                    <PropertyColumn Property="x => x.Value" Title="Value" Sortable="true" Filterable="false" 
-                                    Format="C" />
-                    <TemplateColumn Title="Actions" Sortable="false" Filterable="false">
-                        <CellTemplate>
-                            <MudButton Variant="Variant.Text" Color="Color.Info" Size="Size.Small" 
-                                       Href="@($"/Liabilities/{context.Item.Id}")">View</MudButton>
-                            <MudButton Variant="Variant.Text" Color="Color.Warning" Size="Size.Small" 
-                                       Href="@($"/Liabilities/edit/{context.Item.Id}")">Edit</MudButton>
-                            <MudButton Variant="Variant.Text" Color="Color.Error" Size="Size.Small" 
-                                       OnClick="@(() => DeleteLiability(context.Item.Id))">
-                                <MudIcon Icon="@Icons.Material.Filled.Delete" Size="Size.Small" />
-                            </MudButton>
-                        </CellTemplate>
-                    </TemplateColumn>
-                </Columns>
-                <PagerContent>
-                    <MudDataGridPager T="Liability" />
-                </PagerContent>
-            </MudDataGrid>
+    <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="mb-4">
+        <MudText Typo="Typo.h4"><b>Liabilities</b></MudText>
+        <MudButton Variant="Variant.Filled" 
+                   StartIcon="@Icons.Material.Filled.Add" 
+                   Color="Color.Primary" 
+                   OnClick="@(() => OpenCreateDialog())">
+            Add Liability
+        </MudButton>
+    </MudStack>
 
-            <MudExpansionPanels Style="flex:1" Class="mt-4">
-                <MudExpansionPanel Text="@($"Selected Items ({_selectedItems.Count})")">
-                    @if (_selectedItems.Count > 0)
-                    {
-                        <MudText Typo="Typo.body2" Class="mb-3"><strong>Total Value:</strong> @GetSelectedTotal().ToString("C")</MudText>
-                        @foreach (var item in _selectedItems)
-                        {
-                            <MudChip T="string" Color="Color.Primary" OnClose="@(() => _selectedItems.Remove(item))">
-                                @item.Name - @item.Value.ToString("C")
-                            </MudChip>
-                        }
-                        <div class="d-flex mt-3">
-                            <MudSpacer/>
-                            <MudButton Class="mt-3" ButtonType="ButtonType.Button" Variant="Variant.Filled" 
-                                       OnClick="@(() => _selectedItems.Clear())">Clear Selection</MudButton>
-                        </div>
-                    }
-                    else
-                    {
-                        <MudText Typo="Typo.body2">No items selected</MudText>
-                    }
-                </MudExpansionPanel>
-            </MudExpansionPanels>
-        </MudCardContent>
-    </MudCard>
+    <MudTable Items="@liabilities" Hover="true" Striped="true" Loading="@isLoading" Elevation="2">
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Type</MudTh>
+            <MudTh>Value</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Type">@context.Type</MudTd>
+            <MudTd DataLabel="Value">@context.Value.ToString("C")</MudTd>
+            <MudTd DataLabel="Actions">
+                <MudIconButton Icon="@Icons.Material.Filled.Edit" 
+                               Color="Color.Info" 
+                               Size="Size.Small" 
+                               Href="@($"/Liabilities/edit/{context.Id}")" />
+                <MudIconButton Icon="@Icons.Material.Filled.Visibility" 
+                               Color="Color.Default" 
+                               Size="Size.Small" 
+                               Href="@($"/Liabilities/{context.Id}")" />
+            </MudTd>
+        </RowTemplate>
+        <NoRecordsContent>
+            <MudText>No liabilities found.</MudText>
+        </NoRecordsContent>
+    </MudTable>
 </MudContainer>
 
-@code 
-{
-    private List<Liability> liabilities = new();
-    private string _searchString = string.Empty;
-    private HashSet<Liability> _selectedItems = new();
+@code {
+    private IEnumerable<Liability> liabilities = new List<Liability>();
+    private bool isLoading = true;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        liabilities = LiabilityService.GetAllLiabilities();
+        await LoadData();
     }
 
-    
-    private Func<Liability, bool> _quickFilter => x =>
+    private async Task LoadData()
     {
-        if (string.IsNullOrWhiteSpace(_searchString))
-            return true;
-
-        if ($"{x.Id}".Contains(_searchString, StringComparison.OrdinalIgnoreCase))
-            return true;
-
-        if (!string.IsNullOrEmpty(x.Name) && x.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
-            return true;
-
-        if (!string.IsNullOrEmpty(x.Type) && x.Type.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
-            return true;
-
-        if ($"{x.Value}".Contains(_searchString))
-            return true;
-
-        return false;
-    };
-
-    void RowClicked(DataGridRowClickEventArgs<Liability> args)
-    {
-        // Handle row click - navigate to details or select
+        isLoading = true;
+        // Updated to use the Async version of your service
+        liabilities = await LiabilityService.GetAllLiabilitiesAsync();
+        isLoading = false;
     }
 
-    void SelectedItemsChanged(HashSet<Liability> items)
+    private async Task OpenCreateDialog()
     {
-        _selectedItems = items;
-    }
-
-    decimal GetSelectedTotal()
-    {
-        return _selectedItems.Sum(l => l.Value);
-    }
-
-     private async Task OpenDialog(Liability? liability = null)
-    {
-        var dialog = await DialogService.ShowAsync<LiabilityDialog>("Add Liability");
+        var options = new DialogOptions { CloseOnEscapeKey = true, MaxWidth = MaxWidth.Small, FullWidth = true };
+        var dialog = await DialogService.ShowAsync<LiabilityDialog>("New Liability", options);
         var result = await dialog.Result;
-        
+
         if (result != null && !result.Canceled)
         {
-            liabilities = LiabilityService.GetAllLiabilities();
+            await LoadData();
         }
-    }
-
-    void DeleteLiability(int id)
-    {
-        // TODO: Implement delete functionality
-        liabilities = liabilities.Where(l => l.Id != id).ToList();
     }
 }

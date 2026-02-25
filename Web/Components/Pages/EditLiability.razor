@@ -1,70 +1,27 @@
 @page "/Liabilities/edit/{id:int}"
 @rendermode InteractiveServer
 @using Domain.Entities
-@using Application.Service.Liabilities
-@using System.ComponentModel.DataAnnotations
+@using Application.Interface
 @using Application.DTO
 @inject ILiabilityService LiabilityService
 @inject NavigationManager NavigationManager
 
-<PageTitle>Edit Liability</PageTitle>
-
 <MudContainer MaxWidth="MaxWidth.Small" Class="py-4">
     <MudCard>
         <MudCardHeader>
-            <MudText Typo="Typo.h4" Color="Color.Primary">
-                <MudIcon Icon="@Icons.Material.Filled.Edit" Class="mr-2" />
-                Edit Liability
-            </MudText>
+            <MudText Typo="Typo.h4" Color="Color.Primary">Edit Liability</MudText>
         </MudCardHeader>
         <MudCardContent>
             <EditForm Model="@Model" OnValidSubmit="OnValidSubmit">
                 <DataAnnotationsValidator />
-                @* <MudAlert Severity="Severity.Error" Class="mb-4" Icon="@Icons.Material.Filled.Error" Dense="true">
-                    <ValidationSummary />
-                </MudAlert> *@
-
                 <div class="d-flex flex-column gap-3">
-                    <MudTextField @bind-Value="Model.Name"
-                                  Label="Name"
-                                  Placeholder="Enter campaign name"
-                                  Variant="Variant.Outlined"
-                                  FullWidth="true" />
-                    <ValidationMessage For="@(() => Model.Name)" />
-
-                    <MudTextField @bind-Value="Model.Type"
-                                  Label="Type"
-                                  Placeholder="Enter campaign type"
-                                  Variant="Variant.Outlined"
-                                  FullWidth="true" />
-                    <ValidationMessage For="@(() => Model.Type)" />
-
-                    <MudTextField @bind-Value="Model.Value"
-                                  Label="Value"
-                                  Placeholder="Enter lability Value"
-                                  Variant="Variant.Outlined"
-                                  FullWidth="true"
-                                  Lines="3" />
-                    <ValidationMessage For="@(() => Model.Value)" />
+                    <MudTextField @bind-Value="Model.Name" Label="Name" Variant="Variant.Outlined" />
+                    <MudTextField @bind-Value="Model.Type" Label="Type" Variant="Variant.Outlined" />
+                    <MudTextField @bind-Value="Model.Value" Label="Value" Variant="Variant.Outlined" />
                 </div>
-
-                <div class="d-flex gap-3 gap-sm-2 mt-4">
-                    <MudButton ButtonType="ButtonType.Submit"
-                               Variant="Variant.Filled"
-                               Color="Color.Success"
-                               EndIcon="@Icons.Material.Filled.Save"
-                               Size="Size.Medium"
-                               FullWidth="false">
-                        Update Liability
-                    </MudButton>
-                    <MudButton Href="/Liabilities"
-                               Variant="Variant.Filled"
-                               Color="Color.Error"
-                               EndIcon="@Icons.Material.Filled.Cancel"
-                               Size="Size.Medium"
-                               FullWidth="false">
-                        Cancel
-                    </MudButton>
+                <div class="d-flex gap-3 mt-4">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Success">Update</MudButton>
+                    <MudButton Href="/Liabilities" Variant="Variant.Filled" Color="Color.Error">Cancel</MudButton>
                 </div>
             </EditForm>
         </MudCardContent>
@@ -72,18 +29,15 @@
 </MudContainer>
 
 @code {
-    [Parameter]
-    public int id { get; set; }
-
+    [Parameter] public int id { get; set; }
     private LiabilityUpdateDTO Model { get; set; } = new();
 
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-        var liability = LiabilityService.GetLiabilityById(id);
+        var liability = await LiabilityService.GetLiabilityByIdAsync(id);
         if (liability != null)
         {
-            Model = new LiabilityUpdateDTO
-            {
+            Model = new LiabilityUpdateDTO {
                 Name = liability.Name,
                 Type = liability.Type,
                 Value = liability.Value
@@ -91,20 +45,9 @@
         }
     }
 
-    private void OnValidSubmit()
+    private async Task OnValidSubmit()
     {
-        if (Model == null)
-            return;
-        LiabilityService.UpdateLiability(id, Model);
-        NavigationManager.NavigateTo("/Liabilities");
-    }
-}
-
-    private void OnValidSubmit()
-    {
-        if (Model == null)
-            return;
-        LiabilityService.UpdateLiability(id, Model);
+        await LiabilityService.UpdateLiabilityAsync(id, Model);
         NavigationManager.NavigateTo("/Liabilities");
     }
 }

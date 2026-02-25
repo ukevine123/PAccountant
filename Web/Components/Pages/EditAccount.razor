@@ -1,8 +1,8 @@
-@page "/accounts/edit/{Id:int}"
-
+@page "/accounts/edit/{Id}"
+@using Application.Services.AccountService
 @using Domain.Entities
 @using Application.DTOs
-@using Application.Services.AccountService
+@using Application.Interfaces
 @using System.ComponentModel.DataAnnotations
 @rendermode InteractiveServer
 @inject IAccountService AccountService
@@ -17,61 +17,68 @@
             <MudButton Href="/accounts" Variant="Variant.Outlined" Size="Size.Small">Back to list</MudButton>
         </div>
 
-        <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
-            <DataAnnotationsValidator />
-            <MudGrid>
-                <MudItem xs="12">
-                    <MudTextField @bind-Value="Model.Name" Label="Name" Placeholder="Enter account name"
-                        Variant="Variant.Outlined" FullWidth="true" />
-                    <ValidationMessage For="@(() => Model.Name)" />
-                </MudItem>
-                <MudItem xs="12">
-                    <MudTextField @bind-Value="Model.Number" Label="Account Number" Placeholder="Enter account number"
-                        Variant="Variant.Outlined" FullWidth="true" />
-                    <ValidationMessage For="@(() => Model.Number)" />
-                </MudItem>
-                <MudItem xs="12">
-                    <MudNumericField @bind-Value="Model.Balance" Label="Balance" Placeholder="Enter balance"
-                        Variant="Variant.Outlined" FullWidth="true" />
-                    <ValidationMessage For="@(() => Model.Balance)" />
-                </MudItem>
-                <MudItem xs="12">
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">
-                        Update Account
-                    </MudButton>
-                </MudItem>
-            </MudGrid>
-        </EditForm>
+        @if (isProcessing)
+        {
+            <div class="d-flex justify-center py-8">
+                <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+            </div>
+        }
+        else
+        {
+            <EditForm Model="Model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="Model.Name" Label="Name" Placeholder="Enter account name"
+                            Variant="Variant.Outlined" FullWidth="true" />
+                        <ValidationMessage For="@(() => Model.Name)" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="Model.Number" Label="Account Number" Placeholder="Enter account number"
+                            Variant="Variant.Outlined" FullWidth="true" />
+                        <ValidationMessage For="@(() => Model.Number)" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudNumericField @bind-Value="Model.Balance" Label="Balance" Placeholder="Enter balance"
+                            Variant="Variant.Outlined" FullWidth="true" />
+                        <ValidationMessage For="@(() => Model.Balance)" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">
+                            Update Account
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </EditForm>
+        }
     </MudPaper>
 </MudContainer>
 
-@code{
+@code {
     [Parameter]
-
-    public int Id { get; set; }
+    public string Id { get; set; } = default!; 
 
     private AccountUpdateDTOs Model { get; set; } = new();
+    private bool isProcessing = true;
 
-    private bool loaded;
-
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-        var account = AccountService.GetAccountById(Id);
+        isProcessing = true;
+        var account = await AccountService.GetAccountByIdAsync(Id);
+        
         if (account != null)
         {
-            Model = new AccountUpdateDTOs
-            {
-               Name = account.Name ?? "",
-               Balance = account.Balance
-            };
+            Model.Name = account.Name;
+            Model.Number = account.Number;
+            Model.Balance = account.Balance;
         }
-        loaded = true;
+        
+        isProcessing = false;
     }
 
-    private void OnValidSubmit()
+    private async Task OnValidSubmit()
     {
-        if (Model == null) return;
-        AccountService.UpdateAccount(Id, Model);
+        await AccountService.UpdateAccountAsync(Id, Model);
         Navigation.NavigateTo("/accounts");
     }
 }

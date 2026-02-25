@@ -39,9 +39,19 @@
 @code {
     private List<Asset> _assets = new();
 
-    protected override void OnInitialized() => LoadData();
+    // Use OnInitializedAsync for async data loading
+    protected override async Task OnInitializedAsync() 
+    {
+        await LoadData();
+    }
 
-    private void LoadData() => _assets = AssetService.GetAllAssets();
+    private async Task LoadData() 
+    { 
+        _assets = await AssetService.GetAllAssetsAsync(); 
+        // Calling StateHasChanged inside the data load ensures the UI re-renders 
+        // once the data actually arrives.
+        StateHasChanged(); 
+    }
 
     private async Task OpenCreateDialog()
     {
@@ -49,16 +59,20 @@
         var dialog = await DialogService.ShowAsync<AssetCreateDialog>("Create Asset", options);
         var result = await dialog.Result;
 
-        if (!result.Canceled)
+        if (result != null && !result.Canceled)
         {
-            LoadData(); 
-            StateHasChanged(); // Force the list to refresh
+            // CRITICAL FIX: You must await LoadData so the code waits for 
+            // the database response before trying to update the UI.
+            await LoadData(); 
         }
     }
 
-    private void DeleteAsset(int id)
+    private async Task DeleteAsset(int id)
     {
-        // Add your AssetService.Delete(id) logic here
-        _assets = _assets.Where(x => x.Id != id).ToList();
+        // Assuming your service has a delete method:
+        // await AssetService.DeleteAssetAsync(id);
+        
+        await LoadData(); // Refresh list from DB after delete
     }
+}
 }

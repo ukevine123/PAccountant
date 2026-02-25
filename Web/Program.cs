@@ -2,9 +2,13 @@
 
 using MudBlazor.Services;
 using Infrastructure.DependencyInjection;
+using Web.Components;
+using Application.Service.Liabilities;
+using Application.Services.AccountService;
+using Application.Interface;
+using Application.Service.Transactions;
 using Application.Interfaces;
 using Application.Services.Assets;
-
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,16 +16,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
 // Register MudBlazor services for Mud components
 builder.Services.AddMudServices();
 
-builder.Services.AddMudServices();
-
+// Dependency Injection for application services
+builder.Services.AddScoped<ILiabilityService, LiabilityService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IAssetService, AssetService>();
 
-builder.Services.AddInfrastructureServices(builder.Configuration);
-
-        // Depedency Injection for infrastructure Layer
+// Register all infrastructure services
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var app = builder.Build();
