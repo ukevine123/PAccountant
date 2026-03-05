@@ -1,0 +1,51 @@
+
+@using Application.Interfaces
+@using Application.Services
+@using Application.DTO
+
+@inject IAccountTypeService AccountTypeService
+
+@inject NavigationManager Navigation
+<MudDialog>
+    <TitleContent>
+        <MudText Typo="Typo.h6">
+            <MudIcon Icon="@Icons.Material.Filled.Inventory" Class="mr-3 mb-n1" />
+            New Account type
+        </MudText>
+    </TitleContent>
+    <DialogContent>
+        <MudForm @ref="form" @bind-IsValid="@success">
+            <MudStack Spacing="4">
+                            <MudTextField Label="Name" HelperText="Enter account type name"
+                              @bind-Value="Model.Name" For="@(() => Model.Name)"/>
+            </MudStack>
+        </MudForm>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Success" 
+                   Variant="Variant.Filled" 
+                   Disabled="@(!success)" 
+                   OnClick="OnValidSubmit">Save</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code { 
+
+    [CascadingParameter]
+    IMudDialogInstance MudDialogInstance { get; set; }
+    
+    // Form state
+    bool success;
+    MudForm form;
+    private AccountTypeDTO  Model {get; set;} = new();
+
+    private void OnValidSubmit()
+    {
+        AccountTypeService.CreateAccountType(Model);
+        
+        Navigation.NavigateTo("/accounts");
+    }  
+    void Cancel() => MudDialogInstance.Cancel();
+
+}

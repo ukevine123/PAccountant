@@ -1,0 +1,80 @@
+@page "/categories"
+@using Application.Interfaces
+@using Application.Services
+@using Domain.Entities
+@rendermode InteractiveServer
+@inject ICategoryService CategoryService
+@inject IDialogService DialogService
+
+<PageTitle>Categories</PageTitle>
+
+<MudDataGrid Items="@_categories" 
+             T="Category" 
+             Filterable="true" 
+             SortMode="@SortMode.Multiple" 
+             QuickFilter="@_quickFilter">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Categories List</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="_searchString" 
+                      Placeholder="Search" 
+                      Adornment="Adornment.Start" 
+                      AdornmentIcon="@Icons.Material.Filled.Search" 
+                      IconSize="Size.Medium" 
+                      Class="mt-0"></MudTextField>
+        <MudButton OnClick="OpenDialogAsync" 
+                   Variant="Variant.Filled" 
+                   Color="Color.Primary" 
+                   Class="ml-4">
+            Create Category
+        </MudButton>
+    </ToolBarContent>
+    <Columns>
+        <PropertyColumn Property="x => x.Name" Title="Name" />
+        <TemplateColumn CellClass="d-flex justify-end">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="@Color.Primary">Edit</MudButton>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="Category" />
+    </PagerContent>
+</MudDataGrid>
+
+@code {
+    private List<Category> _categories = new List<Category>();
+    private string _searchString;
+
+    protected override void OnInitialized()
+    {
+        _categories = CategoryService.GetAllCategories();
+    }
+
+    // Logic for the Search Bar (Quick Filter)
+    private Func<Category, bool> _quickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(_searchString))
+            return true;
+
+        if (x.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return true;
+    };
+
+    private async Task OpenDialogAsync()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        var dialog = await DialogService.ShowAsync<CreateCategory>("Create New Category", options);
+        var result = await dialog.Result;
+
+        if (!result.Canceled)
+        {
+            // Refresh list if a new category was added
+            _categories = CategoryService.GetAllCategories(); 
+        }
+    }
+}
